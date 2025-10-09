@@ -1,6 +1,6 @@
 export default function logoutController(req, res) {
 
-    const { email } = req.email || 'User';
+    const email = req.email?.email || 'User';
     res.clearCookie('accessToken', {
         httpOnly: true,
         secure: false,
