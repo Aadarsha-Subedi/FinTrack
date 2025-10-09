@@ -27,10 +27,8 @@ export default function Login() {
                 data: { email, password },
                 withCredentials: true
             });
-            if (response.status === 200) {
-                toast.success(response.data.message);
-                navigate('../user', { replace: true, state: { name: response.data.name } });
-            }
+            toast.success(response.data.message);
+            navigate('../user', { replace: true, state: { name: response.data.name } });
         } catch (error) {
             toast.error(error.response.data.message);
         }

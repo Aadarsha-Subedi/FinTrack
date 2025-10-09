@@ -28,11 +28,9 @@ export default function UserSidebar() {
                 withCredentials: true
             });
             toast.success(response.data.message);
+            navigate('/login', { replace: true });
         } catch (error) {
             toast.error(error.message);
-        }
-        finally {
-            navigate('../../login', { replace: true });
         }
     }
 
@@ -77,12 +75,12 @@ export default function UserSidebar() {
                 </NavLink>
             </div>
             <div className="nav-logout-wrapper">
-                <NavLink onClick={logoutUser} to='../../login' replace>
+                <div onClick={logoutUser}>
                     <button className='nav-logout-btn'>
                         <img src={logoutIcon} alt="A logout icon." width={24} />
                         Logout
                     </button>
-                </NavLink>
+                </div>
             </div>
         </header>
     )
