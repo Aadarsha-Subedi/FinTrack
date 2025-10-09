@@ -23,6 +23,10 @@ import verifyRouter from './src/Routes/VerifyRouter.js';
 dotenv.config({ path: './.env', quiet: true });
 const port = process.env.BACKEND_PORT || 4000;
 const app = express();
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+}));
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,  // 15 minutes
     max: 100,                   // limit each IP to 100 requests per windowMs
@@ -33,10 +37,7 @@ const limiter = rateLimit({
 
 app.use(limiter);
 app.use(express.json());
-app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-}));
+
 app.use(cookieParser());
 app.use(signupRouter);
 app.use(loginRouter);

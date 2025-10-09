@@ -24,11 +24,11 @@ export default function RequireAuth({ children }) {
                     setLoading(false);
                 } else {
                     toast.error("Please login first");
-                    navigate("/login", { replace: true });
+                    navigate(`${url}/login`, { replace: true });
                 }
             } catch (error) {
                 toast.error("Session expired or invalid");
-                navigate("/login", { replace: true });
+                navigate(`/login`, { replace: true });
             }
         };
 

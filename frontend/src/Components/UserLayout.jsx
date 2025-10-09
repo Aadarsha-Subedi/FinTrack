@@ -22,7 +22,7 @@ export default function UserLayout() {
             try {
                 const response = await axios({
                     method: 'GET',
-                    url: `${url}/settings`,
+                    url: `${url}/user/settings`,
                     withCredentials: true,
                 });
                 setUserCurrency(response.data.message.rows[0].currency);
