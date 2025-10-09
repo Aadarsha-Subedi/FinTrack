@@ -6,7 +6,7 @@ export default function logoutController(req, res) {
         secure: false,
         sameSite: 'none',
         path: '/',
-        domain: 'finances-tool-backend.fly.dev'
+        domain: 'https://finance-tracker-backend-zjf4.onrender.com'
     });
 
     return res.status(200).json({
