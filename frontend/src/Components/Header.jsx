@@ -27,9 +27,12 @@ export default function UserSidebar() {
 
     async function logoutUser() {
         try {
-            const response = await axios.get(`${url}/user/logout`, {
+            const response = await axios({
+                method: 'GET',
+                url: `${url}/user/logout`,
                 withCredentials: true
             });
+
             toast.success(response.data.message);
             setIsAuthenticated(false);
             navigate('/login', { replace: true });

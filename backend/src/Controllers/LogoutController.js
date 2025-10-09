@@ -4,8 +4,9 @@ export default function logoutController(req, res) {
     res.clearCookie('accessToken', {
         httpOnly: true,
         secure: false,
-        sameSite: 'lax',
-        path: '/'
+        sameSite: 'none',
+        path: '/',
+        domain: 'finances-tool-backend.fly.dev'
     });
 
     return res.status(200).json({

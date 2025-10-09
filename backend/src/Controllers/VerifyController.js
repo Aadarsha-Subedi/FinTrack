@@ -13,7 +13,6 @@ export default function VerifyController (req, res) {
         }
 
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
-
         return res.status(200).json({
             loggedIn: true,
             email: decoded.email
