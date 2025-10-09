@@ -24,8 +24,9 @@ dotenv.config({ path: './.env', quiet: true });
 const port = process.env.BACKEND_PORT || 4000;
 const app = express();
 app.use(cors({
-    origin: ["finance-tracker-frontend-aadarsha-subedis-projects.vercel.app",
-        "finance-tracker-frontend-aadarsha-subedis-projects.vercel.app"
+    origin: [
+        "https://finance-tracker-frontend-gules.vercel.app",
+        "https://finance-tracker-frontend-aadarsha-subedis-projects.vercel.app"
     ],
     credentials: true,
 }));
