@@ -35,7 +35,6 @@ export default function Settings() {
 
             toast.success('Currency updated!');
             setUserCurrency(currency);
-            setTimeout(() => navigate(0), 500);
         } catch (error) {
             toast.error('Error updating currency');
         }
