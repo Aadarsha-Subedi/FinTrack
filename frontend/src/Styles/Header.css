@@ -12,8 +12,8 @@
     font-size: 1.2rem;
     font-weight: bold;
     color: var(--neutral-500);
-    letter-spacing: .1ch;
     text-transform: capitalize;
+    text-align: center;
 }
 
 .nav-logout-btn {
@@ -34,6 +34,7 @@
 
 /* LAYOUT */
 .header-container {
+    min-width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -87,4 +88,17 @@
     border-bottom: 2px solid var(--neutral-900);
     border-bottom-width: 100%;
     border-radius: 0;
+}
+
+@media (max-width: 750px) {
+    .header-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+    .header-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
 }

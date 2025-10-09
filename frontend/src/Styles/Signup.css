@@ -1,6 +1,10 @@
 /* TYPOGRAPHY */
+.signup-container * {
+    font-family: Helvetica, sans-serif;
+}
+
 .signup-hero-text {
-    font-size: 2rem;
+    font-size: 1.2rem;
 }
 
 .signup-info-text {
@@ -20,9 +24,9 @@
 }
 
 .signup-formgroup>label {
-    font-size: 1.5rem;
-    font-weight: 600;
-    letter-spacing: .1ch;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--neutral-900);
 }
 
 .signup-hero-text,
@@ -32,42 +36,48 @@
 }
 
 .signup-formgroup>input {
-    font-family: "Inter", sans-serif;
     font-weight: 500;
     letter-spacing: .2ch;
 }
 
 .signup-btn {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     color: var(--neutral-50);
 }
 
 
 /* LAYOUT */
-
 .signup-container {
-    padding: 1em;
+    height: 100vh;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100%;
-    background: #f5f5f5;
-    background: radial-gradient(circle, rgba(245, 245, 245, 1) 0%, rgba(130, 197, 209, 1) 50%, rgba(117, 135, 189, 1) 100%);
+    background-color: var(--neutral-200);
 }
 
+.signup-image-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--neutral-50);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-wrapper {
+    margin-top: 2em;
+    margin-left: 1em;
+}
 
 .signup-wrapper {
-    background-color: var(--neutral-50);
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1em;
+    padding: 2em 3em;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    border-radius: 25px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .signup-info-text {
@@ -81,8 +91,7 @@
 .signup-formgroup>input {
     width: 100%;
     padding: 0.75em 1.5em;
-    border: 1px solid var(--border-color);
-    border-radius: 25px;
+       border: 1px solid var(--neutral-400);
     background-color: var(--neutral-200);
 }
 
@@ -110,7 +119,7 @@
     padding: 0.5em 1.5em;
     margin: 0 auto;
     border: none;
-    border-radius: 10px;
+    border-radius: 2px;
     background-color: var(--primary-400);
     box-shadow: 2px 2px 2px var(--primary-400);
     transition: background-color 0.3s ease-in-out 0s;
@@ -120,4 +129,10 @@
 .signup-btn:focus {
     background-color: var(--primary-600);
     box-shadow: 2px 2px 2px var(--primary-600);
+}
+
+@media (max-width: 600px) {
+    .signup-image-wrapper {
+        flex-direction: column;
+    }
 }

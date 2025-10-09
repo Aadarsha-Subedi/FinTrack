@@ -3,6 +3,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import rateLimit from 'express-rate-limit';
 
 //MIDDLEWARES
 import verifyToken from './src/Middlewares/VerifyToken.js';
@@ -19,9 +20,17 @@ import logoutRouter from './src/Routes/LogoutRouter.js';
 import UserSettingsRouter from './src/Routes/UserSettingsRouter.js';
 import verifyRouter from './src/Routes/VerifyRouter.js';
 
-dotenv.config({path: './.env', quiet: true});
+dotenv.config({ path: './.env', quiet: true });
 const app = express();
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000,  // 15 minutes
+    max: 100,                   // limit each IP to 100 requests per windowMs
+    message: { message: 'Too many requests, please try again later.' },
+    standardHeaders: true,      // return rate limit info in headers
+    legacyHeaders: false,
+});
 
+app.use(limiter);
 app.use(express.json());
 app.use(cors({
     origin: "http://localhost:5173",

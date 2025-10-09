@@ -6,6 +6,7 @@ import Balancer from 'react-wrap-balancer';
 
 //ASSETS AND STYLES
 import '../Styles/Login.css';
+import loginIcon from '../Public/login.svg';
 
 export default function Login() {
 
@@ -28,7 +29,7 @@ export default function Login() {
                 return;
             }
             toast.success(response.data.message);
-            navigate('../user', { replace: true ,  state: { name: response.data.name } });
+            navigate('../user', { replace: true, state: { name: response.data.name } });
         } catch (error) {
             toast.error(error.response.data.message);
         }
@@ -36,23 +37,28 @@ export default function Login() {
 
     return (
         <div className="login-container">
-            <div className="login-container-wrapper">
-                <div className="login-text-wrapper">
-                    <h1 className="login-hero-text"><Balancer>Welcome! Login to Finance Tracker to get started!</Balancer></h1>
-                    <p className="login-info-text">Don't have an account? <NavLink to='/signup'><span className='login-help-text'>Sign Up</span></NavLink></p>
+            <div className="login-image-container">
+                <div className="image-wrapper">
+                    <img src={loginIcon} alt="A computer login svg icon." width={328} />
                 </div>
-                <div className="login-form-wrapper">
-                    <form className='form-login' action={loginUser}>
-                        <div className="login-formgroup">
-                            <label htmlFor='email'>Email</label>
-                            <input type="email" id='email' name='email' required />
-                        </div>
-                        <div className="login-formgroup">
-                            <label htmlFor='password'>Password</label>
-                            <input type="password" id='password' name='password' required />
-                        </div>
-                        <button className='login-btn'>Login</button>
-                    </form>
+                <div className="login-container-wrapper">
+                    <div className="login-text-wrapper">
+                        <h1 className="login-hero-text"><Balancer>Welcome! Login to Finance Tracker to get started!</Balancer></h1>
+                        <p className="login-info-text">Don't have an account? <NavLink to='/signup'><span className='login-help-text'>Sign Up</span></NavLink></p>
+                    </div>
+                    <div className="login-form-wrapper">
+                        <form className='form-login' action={loginUser}>
+                            <div className="login-formgroup">
+                                <label htmlFor='email'>Email</label>
+                                <input placeholder='test@example.com' type="email" id='email' name='email' required />
+                            </div>
+                            <div className="login-formgroup">
+                                <label htmlFor='password'>Password</label>
+                                <input type="password" id='password' name='password' required />
+                            </div>
+                            <button className='login-btn'>Login</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

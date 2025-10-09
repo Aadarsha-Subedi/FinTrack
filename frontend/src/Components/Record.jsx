@@ -23,12 +23,10 @@ export default function Record({ transactionId, category, description, amount, s
     const [modalType, setModalType] = useState();
     const [activeRecord, setActiveRecord] = useState();
     const userCurrency = useContext(CurrencyContext).userCurrency;
-    const formattedCurrency = userCurrency.slice(userCurrency.indexOf('(')+1,userCurrency.indexOf(')'));
+    const formattedCurrency = userCurrency ? userCurrency.slice(userCurrency.indexOf('(') + 1, userCurrency.indexOf(')')) : '$';
 
     function closeDeleteRecordModal() {
-        if (deleteDialogRef.current) {
-            deleteDialogRef.current.close();
-        }
+        deleteDialogRef.current.close();
         setActiveRecord(undefined);
         setModalType(undefined);
         document.body.style.overflow = '';

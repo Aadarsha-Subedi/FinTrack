@@ -24,7 +24,6 @@
 .info-container {
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
-
 .bar-analytics-container,
 .pie-analytics-container,
 .info-daily-analytics-container,
@@ -34,4 +33,9 @@
     box-shadow: 1px 1px 3px var(--neutral-700);
     padding: 1em;
     border-radius: 20px;
+}
+.info-daily-analytics-container,
+.info-monthly-analytics-container,
+.info-yearly-analytics-container {
+    max-width: 500px;
 }
