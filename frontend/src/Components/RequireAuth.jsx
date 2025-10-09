@@ -1,5 +1,5 @@
 //CORE IMPORTS
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 
 //THIRD PARTY IMPORTS
 import { useNavigate } from "react-router-dom";
@@ -8,34 +8,21 @@ import { toast } from "sonner";
 
 //CONTEXTS, UTILS AND WEBHOOKS
 import { url } from '../Utils/url';
+import { AuthContext } from "../Contexts/AuthContext";
+
 
 export default function RequireAuth({ children }) {
+    const { isAuthenticated } = useContext(AuthContext);
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const verifyUser = async () => {
-            try {
-                const response = await axios.get(`${url}/verify`, {
-                    withCredentials: true,
-                });
+        if (isAuthenticated === false) {
+            toast.error("Please login first");
+            navigate("/login", { replace: true });
+        }
+    }, [isAuthenticated, navigate]);
 
-                if (response.data.loggedIn) {
-                    setLoading(false);
-                } else {
-                    toast.error("Please login first");
-                    navigate(`${url}/login`, { replace: true });
-                }
-            } catch (error) {
-                toast.error("Session expired or invalid");
-                navigate(`/login`, { replace: true });
-            }
-        };
+    if (isAuthenticated === null) return <p>Loading...</p>;
 
-        verifyUser();
-    }, [navigate]);
-
-    if (loading) return <p>Loading...</p>;
-
-    return children;
+    return isAuthenticated ? children : null;
 }

@@ -1,6 +1,9 @@
 //THIRD PARTY IMPORTS
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 
+//CONTEXTS, UTILS AND WEBHOOKS
+import { AuthProvider } from './Contexts/AuthContext.jsx';
+
 //COMPONENTS
 import UserLayout from './Components/UserLayout.jsx';
 import PreventAuth from './Components/PreventAuth.jsx';
@@ -20,16 +23,19 @@ import '../src/Styles/App.css';
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<PreventAuth><LandingPage /></PreventAuth>} />
-        <Route path='/signup' element={<PreventAuth><Signup /></PreventAuth>} />
-        <Route path='/login' element={<PreventAuth><Login /></PreventAuth>} />
+      <AuthProvider>
+        <Routes>
+          <Route path='/' element={<PreventAuth><LandingPage /></PreventAuth>} />
+          <Route path='/signup' element={<PreventAuth><Signup /></PreventAuth>} />
+          <Route path='/login' element={<PreventAuth><Login /></PreventAuth>} />
           <Route path='/user' element={<RequireAuth><UserLayout /></RequireAuth>}>
             <Route index element={<Dashboard />} />
             <Route path='analytics' element={<Analytics />} />
             <Route path='settings' element={<Settings />} />
           </Route>
-      </Routes>
+        </Routes>
+
+      </AuthProvider>
     </BrowserRouter>
   );
 }

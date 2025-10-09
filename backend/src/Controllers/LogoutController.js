@@ -1,10 +1,11 @@
 export default function logoutController(req, res) {
 
-    const { email } = req.email;
+    const { email } = req.email || 'User';
     res.clearCookie('accessToken', {
         httpOnly: true,
-        secure: false, // since localhost isn't HTTPS
-        sameSite: 'lax', // not 'none' unless you use HTTPS
+        secure: false,
+        sameSite: 'lax',
+        path: '/'
     });
 
     return res.status(200).json({

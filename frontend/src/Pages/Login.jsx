@@ -1,3 +1,6 @@
+//CORE REACT IMPORTS
+import { useContext } from 'react';
+
 //THIRD PARTY COMPONENTS
 import axios from 'axios';
 import { toast } from 'sonner';
@@ -6,6 +9,7 @@ import Balancer from 'react-wrap-balancer';
 
 // CONTEXTS, UTILS AND WEBHOOKS 
 import { url } from '../Utils/url';
+import { AuthContext } from '../Contexts/AuthContext';
 
 //ASSETS AND STYLES
 import '../Styles/Login.css';
@@ -14,6 +18,8 @@ import loginIcon from '../Public/login.svg';
 export default function Login() {
 
     const navigate = useNavigate();
+    const { setIsAuthenticated } = useContext(AuthContext);
+
 
     async function loginUser(formData) {
 
@@ -28,6 +34,7 @@ export default function Login() {
                 withCredentials: true
             });
             toast.success(response.data.message);
+            setIsAuthenticated(true);
             navigate('../user', { replace: true, state: { name: response.data.name } });
         } catch (error) {
             toast.error(error.response.data.message);
@@ -53,7 +60,7 @@ export default function Login() {
                             </div>
                             <div className="login-formgroup">
                                 <label htmlFor='password'>Password</label>
-                                <input type="password" id='password' name='password' required />
+                                <input placeholder='******' type="password" id='password' name='password' required />
                             </div>
                             <button className='login-btn'>Login</button>
                         </form>
