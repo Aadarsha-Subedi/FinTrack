@@ -1,6 +1,12 @@
+//CORE REACT IMPORTS
 import { useEffect, useState } from "react";
+
+//THIRD PARTY IMPORTS
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+
+//CONTEXTS, UTILS AND WEBHOOKS
+import { url } from '../Utils/url';
 
 export default function PreventAuth({ children }) {
     const navigate = useNavigate();
@@ -9,7 +15,7 @@ export default function PreventAuth({ children }) {
     useEffect(() => {
         const checkAuth = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/verify", {
+                const response = await axios.get(`${url}/verify`, {
                     withCredentials: true,
                 });
 

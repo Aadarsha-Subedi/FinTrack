@@ -4,8 +4,9 @@ import { Outlet } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'sonner';
 
-//CONTEXT
+//CONTEXT, UTILS AND WEBHOOKS
 import { CurrencyContext } from '../Contexts/CurrencyContext.js';
+import { url } from '../Utils/url.js';
 
 //COMPONENTS
 import Header from './Header.jsx';
@@ -21,7 +22,7 @@ export default function UserLayout() {
             try {
                 const response = await axios({
                     method: 'GET',
-                    url: 'http://localhost:8000/user/settings',
+                    url: `${url}/settings`,
                     withCredentials: true,
                 });
                 setUserCurrency(response.data.message.rows[0].currency);

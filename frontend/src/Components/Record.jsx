@@ -6,8 +6,10 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import Balancer from 'react-wrap-balancer';
 
-//CONTEXTS
+//CONTEXTS, UTILS AND WEBHOOKS
 import { CurrencyContext } from '../Contexts/CurrencyContext.js';
+import { url } from '../Utils/url';
+
 
 //ASSETS AND STYLES
 import deleteIcon from '../Public/cross.svg';
@@ -72,7 +74,7 @@ export default function Record({ transactionId, category, description, amount, s
         try {
             const response = await axios({
                 method: 'PUT',
-                url: `http://localhost:8000/user/update/${activeRecord}`,
+                url: `${url}/user/update/${activeRecord}`,
                 withCredentials: true,
                 data: { category, amount, description },
             })
@@ -83,7 +85,7 @@ export default function Record({ transactionId, category, description, amount, s
         try {
             const response = await axios({
                 method: 'GET',
-                url: 'http://localhost:8000/user',
+                url: `${url}/user`,
                 withCredentials: true
             })
             if (response.status !== 200) {
@@ -105,7 +107,7 @@ export default function Record({ transactionId, category, description, amount, s
         try {
             const response = await axios({
                 method: 'DELETE',
-                url: `http://localhost:8000/user/delete/${activeRecord}`,
+                url: `${url}/user/delete/${activeRecord}`,
                 withCredentials: true
             });
             toast.success(response.data.message);
@@ -115,7 +117,7 @@ export default function Record({ transactionId, category, description, amount, s
         try {
             const response = await axios({
                 method: 'GET',
-                url: 'http://localhost:8000/user',
+                url: `${url}/user`,
                 withCredentials: true
             })
             if (response.status !== 200) {

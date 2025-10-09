@@ -6,6 +6,9 @@ import { toast } from 'sonner';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
+// CONTEXTS, UTILS AND WEBHOOKS
+import { url } from '../Utils/url.js';
+
 //COMPONENTS
 import Record from '../Components/Record.jsx';
 import NoRecordTemplate from '../Components/NoRecordTemplate.jsx';
@@ -27,7 +30,7 @@ export default function Dashboard() {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/user', { withCredentials: true });
+                const response = await axios.get(`${url}/user`, { withCredentials: true });
                 if (response.status === 200) {
                     setUserFinances(response.data.response.rows);
                     setName(response.data.name);
@@ -49,7 +52,7 @@ export default function Dashboard() {
         try {
             const response = await axios({
                 method: 'POST',
-                url: 'http://localhost:8000/user/add',
+                url: `${url}/user/add`,
                 withCredentials: true,
                 data: { category, description, amount }
             });
@@ -59,7 +62,7 @@ export default function Dashboard() {
 
             const fetchResponse = await axios({
                 method: 'GET',
-                url: 'http://localhost:8000/user',
+                url: `${url}/user`,
                 withCredentials: true
             });
 

@@ -1,8 +1,9 @@
 //CORE REACT IMPORTS
 import { useContext, useEffect, useState } from 'react';
 
-//CONTEXTS AND HOOKS
+//CONTEXTS, UTILS AND HOOKS
 import { CurrencyContext } from '../Contexts/CurrencyContext.js';
+import { url } from '../Utils/url.js';
 
 //COMPONENTS
 import MonthlyBarChart from '../Components/MonthlyBarChart.jsx';
@@ -34,7 +35,7 @@ export default function Analytics() {
             try {
                 const response = await axios({
                     method: 'GET',
-                    url: 'http://localhost:8000/user/analytics',
+                    url: `${url}/user/analytics`,
                     withCredentials: true,
                 });
                 if (response.status !== 200) {

@@ -3,6 +3,9 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import { useNavigate, NavLink } from 'react-router-dom';
 
+// CONTEXTS, UTILS AND WEBHOOKS
+import { url } from '../Utils/url';
+
 //ASSETS AND STYLES
 import '../Styles/Signup.css';
 import signupIcon from '../Public/signup.svg';
@@ -22,7 +25,7 @@ export default function Signup() {
         try {
             const response = await axios({
                 method: 'POST',
-                url: 'http://localhost:8000/signup',
+                url: `${url}/signup`,
                 data: { email, password, confirmPassword, name, currency },
             })
             if (response.status !== 200) {

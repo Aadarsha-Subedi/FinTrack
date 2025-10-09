@@ -4,6 +4,9 @@ import { toast } from 'sonner';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Balancer from 'react-wrap-balancer';
 
+// CONTEXTS, UTILS AND WEBHOOKS 
+import { url } from '../Utils/url';
+
 //ASSETS AND STYLES
 import '../Styles/Login.css';
 import loginIcon from '../Public/login.svg';
@@ -20,16 +23,14 @@ export default function Login() {
         try {
             const response = await axios({
                 method: 'POST',
-                url: 'http://localhost:8000/login',
+                url: `${url}/login`,
                 data: { email, password },
                 withCredentials: true
             });
-            if (response.status !== 200) {
-                toast.error(response.data.message);
-                return;
+            if (response.status === 200) {
+                toast.success(response.data.message);
+                navigate('../user', { replace: true, state: { name: response.data.name } });
             }
-            toast.success(response.data.message);
-            navigate('../user', { replace: true, state: { name: response.data.name } });
         } catch (error) {
             toast.error(error.response.data.message);
         }

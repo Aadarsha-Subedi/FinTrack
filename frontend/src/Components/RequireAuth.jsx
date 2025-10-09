@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "sonner";
 
+//CONTEXTS, UTILS AND WEBHOOKS
+import { url } from '../Utils/url';
+
 export default function RequireAuth({ children }) {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
@@ -13,7 +16,7 @@ export default function RequireAuth({ children }) {
     useEffect(() => {
         const verifyUser = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/verify", {
+                const response = await axios.get(`${url}/verify`, {
                     withCredentials: true,
                 });
 

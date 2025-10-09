@@ -6,11 +6,12 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'sonner';
 
+
+// CONTEXTS, UTILS AND WEBHOOKS
+import { url } from '../Utils/url';
+
 //ASSETS AND STYLES
-import logoIcon from '../Public/logo.svg';
 import logoutIcon from '../Public/logout.svg';
-import crossIcon from '../Public/cross.svg';
-import sidebarIcon from '../Public/sidebar.svg';
 import '../Styles/Header.css';
 
 
@@ -23,7 +24,7 @@ export default function UserSidebar() {
         try {
             const response = await axios({
                 method: 'GET',
-                url: 'http://localhost:8000/user/logout',
+                url: `${url}/user/logout`,
                 withCredentials: true
             });
             toast.success(response.data.message);

@@ -7,8 +7,9 @@ import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import Balancer from 'react-wrap-balancer';
 
-//CONTEXTS AND WEBHOOKS
+//CONTEXTS, UTILS AND WEBHOOKS
 import { CurrencyContext } from '../Contexts/CurrencyContext';
+import { url } from '../Utils/url';
 
 // ASSETS AND STYLES
 import '../Styles/Settings.css';
@@ -27,7 +28,7 @@ export default function Settings() {
         try {
             const response = await axios({
                 method: 'PUT',
-                url: 'http://localhost:8000/user/settings',
+                url: `${url}/user/settings`,
                 data: { newCurrency: currency },
                 withCredentials: true,
             });
@@ -58,7 +59,7 @@ export default function Settings() {
         try {
             const response = await axios({
                 method: 'DELETE',
-                url: `http://localhost:8000/user/settings`,
+                url: `${url}/user/settings`,
                 withCredentials: true
             });
             toast.success(response.data.message);

@@ -21,6 +21,7 @@ import UserSettingsRouter from './src/Routes/UserSettingsRouter.js';
 import verifyRouter from './src/Routes/VerifyRouter.js';
 
 dotenv.config({ path: './.env', quiet: true });
+const port = process.env.BACKEND_PORT || 4000;
 const app = express();
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,  // 15 minutes
@@ -48,4 +49,4 @@ app.use('/user', verifyToken, userAnalyticsRouter);
 app.use('/user', verifyToken, UserSettingsRouter)
 app.use('/user', verifyToken, logoutRouter);
 
-app.listen(process.env.BACKEND_PORT, console.log(`Server is running on port ${process.env.BACKEND_PORT}!`));
+app.listen(port);
