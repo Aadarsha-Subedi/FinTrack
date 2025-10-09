@@ -1,0 +1,37 @@
+/* TYPOGRAPHY */
+.hero-amount {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+/* LAYOUT */
+.analytics-info-container {
+    padding: 1.5em;
+    margin-bottom: 1em;
+}
+.analytics-container,
+.info-container {
+    max-width: 900px;
+    margin: 1em auto;
+    display: grid;
+    grid-auto-rows: auto;
+    gap: 2em;
+}
+
+.analytics-container {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+.info-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.bar-analytics-container,
+.pie-analytics-container,
+.info-daily-analytics-container,
+.info-monthly-analytics-container,
+.info-yearly-analytics-container {
+    background-color: var(--neutral-100);
+    box-shadow: 1px 1px 3px var(--neutral-700);
+    padding: 1em;
+    border-radius: 20px;
+}

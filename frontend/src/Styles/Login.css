@@ -1,0 +1,118 @@
+/* TYPOGRAPHY */
+.login-hero-text {
+    font-size: 2rem;
+    word-spacing: .2ch;
+    letter-spacing: .1ch;
+}
+
+.login-info-text {
+    font-size: .875rem;
+    color: var(--neutral-900);
+}
+
+.login-help-text {
+    color: var(--primary-500);
+    font-weight: bolder;
+    word-spacing: .5ch;
+    transition: color 0.3s ease-in-out 0s;
+}
+
+.login-help-text:hover,
+.login-help-text:focus {
+    color: var(--button-bg-hover);
+}
+
+.login-formgroup>label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: .1ch;
+}
+
+.login-hero-text,
+.login-info-text,
+.login-help-text {
+    text-align: center;
+}
+
+.login-formgroup>input {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    letter-spacing: .2ch;
+}
+
+.login-btn {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* LAYOUT */
+.login-container {
+
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: #f5f5f5;
+    background: radial-gradient(circle, rgba(245, 245, 245, 1) 0%, rgba(130, 197, 209, 1) 50%, rgba(117, 135, 189, 1) 100%);
+}
+
+.login-container-wrapper {
+    padding: 2em;
+    width: 100%;
+    max-width: 600px;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--neutral-100);
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.login-text-wrapper {
+    margin-top: 1em;
+}
+
+.login-info-text {
+    margin-top: 1em;
+}
+
+.login-help-text {
+    margin-left: .4em;
+}
+
+.login-formgroup>input {
+    width: 100%;
+    padding: 0.75em 1.5em;
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+}
+
+.login-formgroup>label {
+    margin: .5em 0;
+    margin-left: .3em;
+}
+
+.login-container,
+.login-formgroup>input {
+    margin: 0 auto;
+}
+
+.login-btn {
+    width: 100%;
+    padding: .5em 1.5em;
+    margin-top: 1em;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--primary-500);
+    color: var(--neutral-50);
+    transition: background-color 0.5s ease-in-out 0s;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+    background-color: var(--primary-800);
+}

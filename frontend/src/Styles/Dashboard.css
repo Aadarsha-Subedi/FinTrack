@@ -1,0 +1,103 @@
+/* TYPOGRAPHY */
+.dashboard-btn-add {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.welcome-text {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.add-formgroup>input {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    letter-spacing: .1ch;
+}
+
+/* LAYOUT */
+body {
+    background-color: var(--neutral-50);
+}
+.dashboard-container {
+    padding: 1em;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: .5em;
+}
+
+.dashboard-add-record-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.dashboard-btn-add {
+    background-color: var(--accent-success-500);
+    border: none;
+    border-radius: 10px;
+    color: var(--neutral-50);
+    width: 50%;
+    margin-bottom: 1em;
+    padding: 1em .5em;
+}
+
+.dashboard-btn-add:hover {
+    background-color: var(--accent-success-600);
+    cursor: pointer;
+}
+
+.dashboard-records-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-auto-rows: auto;
+    align-items: center;
+    gap: 1rem;
+}
+
+.add-record-dialog-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid var(--neutral-500);
+    padding: 1em 2.5em;
+    border-radius: 15px;
+}
+
+.add-record-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5em;
+}
+
+.add-record-heading {
+    margin-top: .5em;
+}
+
+.add-formgroup>label {
+    margin-bottom: .3em;
+}
+
+.add-formgroup>input {
+    width: 100%;
+    padding: 1em 1.5em;
+    border: 1px solid var(--neutral-300);
+    background-color: var(--neutral-200);
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+
+.add-record-btn {
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.add-record-btn>button {
+    text-align: center;
+    padding: 1em 3.5em;
+    border-radius: 10px;
+    border: none;
+}

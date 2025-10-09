@@ -1,0 +1,19 @@
+/* TYPOGRAPHY */
+.template-container > p {
+    color: var(--neutral-600);
+}
+
+/* LAYOUT */
+
+.template-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--neutral-200);
+    padding: 1em 2.5em;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px var(--neutral-400);
+    /* gap: 2em; */
+}

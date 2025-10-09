@@ -1,0 +1,227 @@
+/* TYPOGRAPHY */
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.record-description,
+.record-category {
+    text-transform: capitalize;
+}
+
+.record-delete-confirm {
+    color: var(--accent-error-800);
+    font-weight: bold;
+}
+
+.record-delete-confirm,
+.record-delete-warning-heading {
+    text-align: center;
+}
+
+.record-delete-btn>button {
+    font-size: .75rem;
+}
+
+.delete-btn,
+.cancel-btn,
+.update-btn {
+    letter-spacing: .2ch;
+    font-weight: bold;
+}
+
+.delete-btn,
+.update-btn {
+    color: var(--neutral-50);
+}
+
+.cancel-btn {
+    color: var(--neutral-900);
+}
+
+.update-formgroup>label {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.update-formgroup>input {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    letter-spacing: .1ch;
+}
+
+.record-amount {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+/* LAYOUT */
+.record-container {
+    min-width: 400px;
+    outline: 1px solid green;
+    display: flex;
+    row-gap: .5em;
+    flex-direction: column;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--primary-50);
+    box-shadow: 0px 1px 3px var(--neutral-800);
+}
+
+.record-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .5em;
+}
+
+.record-amount {
+    margin-bottom: 1em;
+}
+
+.record-category,
+.record-amount {
+    margin: 0;
+    margin-left: .5em;
+}
+
+.record-description {
+    margin-left: 1em;
+}
+
+.record-amount {
+    margin-bottom: .5em;
+}
+
+.record-icons {
+    display: flex;
+    gap: .5em;
+}
+
+.record-icons>img {
+    border-radius: 50%;
+    padding: .5em;
+    cursor: pointer;
+    margin-right: .5em;
+}
+
+.record-icons>img:hover {
+    background-color: var(--primary-100);
+}
+
+.record-delete-dialog-wrapper,
+.record-update-dialog-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.record-delete-icon-wrapper,
+.record-update-icon-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.record-delete-dialog-wrapper {
+    border: 2px solid var(--accent-error-600);
+    border-radius: 10px;
+    padding: 1.5em 1em;
+    background-color: var(--neutral-100);
+}
+
+.record-delete-warning-heading {
+    max-width: 75%;
+    margin: 0 auto;
+    margin-top: .5em
+}
+
+.record-delete-confirm {
+    margin-bottom: 1em;
+}
+
+.record-delete-btn,
+.record-update-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.record-update-btn {
+    margin-top: 1em;
+}
+
+.record-delete-btn>button,
+.record-update-btn>button {
+    text-align: center;
+    padding: 1em 3.5em;
+    border-radius: 10px;
+    border: none;
+}
+
+.delete-btn {
+    background-color: var(--accent-error-600);
+    box-shadow: 1px 1px 3px var(--accent-error-600)
+}
+
+.delete-btn:hover {
+    cursor: pointer;
+    background-color: var(--accent-error-700);
+}
+
+.cancel-btn {
+    background-color: var(--neutral-200);
+    box-shadow: 1px 1px 3px var(--neutral-200)
+}
+
+.cancel-btn:hover {
+    cursor: pointer;
+    background-color: var(--neutral-300);
+}
+
+.close-modal {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: .5em;
+}
+
+.close-modal:hover {
+    cursor: pointer;
+}
+
+.record-update-dialog-wrapper {
+    border: 2px solid var(--accent-info-500);
+    border-radius: 10px;
+    padding: 1em 1.5em;
+}
+
+.record-update-icon-wrapper {
+    margin-bottom: 1em;
+}
+
+.update-record-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.update-formgroup>label {
+    margin-bottom: .3em;
+}
+
+.update-formgroup>input {
+    width: 100%;
+    padding: 1em 1.5em;
+    border: 1px solid var(--neutral-300);
+    background-color: var(--neutral-200);
+    border-radius: 10px;
+}
+
+.update-btn {
+    background-color: var(--accent-info-500);
+    box-shadow: 1px 1px 3px var(--accent-info-500);
+}
+.update-btn:hover {
+    background-color: var(--accent-info-700);
+    cursor: pointer;
+}
