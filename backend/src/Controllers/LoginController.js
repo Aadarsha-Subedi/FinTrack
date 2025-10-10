@@ -35,11 +35,12 @@ export default async function loginController(req, res) {
         }
         const accessToken = jwt.sign({ email }, process.env.SECRET_KEY, { expiresIn: '1d' });
 
-        res.cookie('accessToken', accessToken, {
-            httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-        });
+res.cookie('accessToken', token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'None',
+    path: '/',
+});
         return res.status(200).json({
             message: `${email} successfully signed in!`,
             name: name
