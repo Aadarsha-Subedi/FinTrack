@@ -3,7 +3,7 @@ import pool from '../db/db.js';
 
 export default async function GetCurrency(req, res) {
 
-    const { email } = req.email;
+    const email = req.email;
 
     try {
         const response = await pool.query('SELECT currency FROM users WHERE email=$1', [email]);

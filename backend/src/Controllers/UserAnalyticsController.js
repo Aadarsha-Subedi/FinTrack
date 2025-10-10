@@ -3,7 +3,7 @@ import pool from '../db/db.js';
 
 export default async function userAnalyticsController(req, res) {
 
-    const { email } = req.email;
+    const  email  = req.email;
     const year = new Date().getFullYear();
     const month = new Date().getMonth()+1;
 

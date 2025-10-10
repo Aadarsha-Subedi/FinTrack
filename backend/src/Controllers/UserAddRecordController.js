@@ -3,7 +3,7 @@ import pool from '../db/db.js';
 
 export default async function userAddRecordController(req, res) {
 
-    const { email } = req.email;
+    const  email  = req.email;
     const { category, amount, description } = req.body;
 
     try {

@@ -16,7 +16,7 @@ export default async function verifyToken(req, res, next) {
 
     try {
         const decoded = jwt.verify(accessToken, process.env.SECRET_KEY);
-        req.email = email;
+        req.email = decoded.email;
         next();
     } catch (error) {
         return res.status(403).json({

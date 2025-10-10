@@ -3,7 +3,7 @@ import pool from '../db/db.js';
 
 export default async function UpdateCurrecny(req, res) {
 
-    const { email } = req.email;
+    const  email  = req.email;
     const { newCurrency } = req.body;
 
 
