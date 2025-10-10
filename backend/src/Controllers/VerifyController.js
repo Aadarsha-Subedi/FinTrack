@@ -9,7 +9,7 @@ export default function VerifyController (req, res) {
         const token = req.cookies.accessToken;
 
         if (!token) {
-            return res.status(401).json({ loggedIn: false, message: 'No token found' });
+            return res.status(200).json({ loggedIn: false, message: 'No token found' });
         }
 
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
@@ -18,7 +18,7 @@ export default function VerifyController (req, res) {
             email: decoded.email
         });
     } catch (error) {
-        return res.status(401).json({
+        return res.status(200).json({
             loggedIn: false,
             message: 'Invalid or expired token'
         });
