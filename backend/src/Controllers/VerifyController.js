@@ -18,6 +18,7 @@ export default function VerifyController (req, res) {
             email: decoded.email
         });
     } catch (error) {
+        res.clearCookie('accessToken');
         return res.status(200).json({
             loggedIn: false,
             message: 'Invalid or expired token'

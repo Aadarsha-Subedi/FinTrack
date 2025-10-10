@@ -1,5 +1,5 @@
 //CORE REACT IMPORTS
-import { useContext, useRef, useState } from 'react';
+import { useContext, useRef } from 'react';
 
 //THIRD PARTY IMPORTS
 import axios from 'axios';
@@ -23,7 +23,6 @@ export default function Settings() {
     const deleteAccountDialogRef = useRef(null);
     const { userCurrency, setUserCurrency } = useContext(CurrencyContext);
     const {setIsAuthenticated} = useContext(AuthContext);
-    const [newCurrency, setNewCurrency] = useState(userCurrency || '');
 
     async function handleCurrencyChange(formData) {
         const currency = formData.get('currencies');
