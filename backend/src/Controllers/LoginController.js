@@ -38,7 +38,7 @@ export default async function loginController(req, res) {
         res.cookie('accessToken', accessToken, {
             httpOnly: true,
             secure: true,
-            sameSite: 'None',
+            sameSite: 'none',
             path: '/',
         });
         return res.status(200).json({
