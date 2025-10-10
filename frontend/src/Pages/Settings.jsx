@@ -64,6 +64,7 @@ export default function Settings() {
                 withCredentials: true
             });
             toast.success(response.data.message);
+            localStorage.removeItem('accessToken')
             setIsAuthenticated(false);
             closeDeleteAccountModal();
             navigate(`/login`, { replace: true })

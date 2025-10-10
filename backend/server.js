@@ -20,8 +20,6 @@ import logoutRouter from './src/Routes/LogoutRouter.js';
 import UserSettingsRouter from './src/Routes/UserSettingsRouter.js';
 import verifyRouter from './src/Routes/VerifyRouter.js';
 
-dotenv.config({ path: './.env', quiet: true });
-const port = process.env.BACKEND_PORT || 4000;
 const app = express();
 app.use(cors({
     origin: [
@@ -31,6 +29,9 @@ app.use(cors({
     ],
     credentials: true,
 }));
+dotenv.config({ path: './.env', quiet: true });
+const port = process.env.BACKEND_PORT || 4000;
+
 const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 100,
