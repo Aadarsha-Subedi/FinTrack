@@ -7,7 +7,6 @@ dotenv.config({ path: './.env', quiet: true });
 export default function VerifyController (req, res) {
     try {
         const token = req.cookies.accessToken;
-        console.log('accessToken:', req.cookies.accessToken, '\n\n');
 
         if (!token) {
             return res.status(401).json({ loggedIn: false, message: 'No token found' });

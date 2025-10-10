@@ -9,6 +9,7 @@ import Balancer from 'react-wrap-balancer';
 
 //CONTEXTS, UTILS AND WEBHOOKS
 import { CurrencyContext } from '../Contexts/CurrencyContext';
+import { AuthContext } from '../Contexts/AuthContext';
 import { url } from '../Utils/url';
 
 // ASSETS AND STYLES
@@ -21,6 +22,7 @@ export default function Settings() {
     const navigate = useNavigate();
     const deleteAccountDialogRef = useRef(null);
     const { userCurrency, setUserCurrency } = useContext(CurrencyContext);
+    const {setIsAuthenticated} = useContext(AuthContext);
     const [newCurrency, setNewCurrency] = useState(userCurrency || '');
 
     async function handleCurrencyChange(formData) {
@@ -62,13 +64,11 @@ export default function Settings() {
                 withCredentials: true
             });
             toast.success(response.data.message);
-
+            setIsAuthenticated(false);
+            closeDeleteAccountModal();
+            navigate(`/login`, { replace: true })
         } catch (error) {
             toast.error(error.message);
-        }
-        finally {
-            closeDeleteAccountModal();
-            navigate('/login', { replace: true })
         }
     }
 

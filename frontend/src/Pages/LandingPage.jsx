@@ -15,7 +15,7 @@ export default function LandingPage() {
     return (
         <div className="landing-container">
             <header className="landing-header">
-                <h1 className="landing-title">Finance<span>Tracker</span></h1>
+                <h1 className="landing-title">Fin<span>Track</span></h1>
                 <p className="landing-subtitle">
                     Manage your money efficiently — track, edit, analyze, and stay on top of your finances.
                 </p>
@@ -53,7 +53,7 @@ export default function LandingPage() {
 
             <footer className="landing-footer">
                 <button className="cta-btn" onClick={navigateUser}>Get Started</button>
-                <p className="footer-text">© {new Date().getFullYear()} FinanceTracker. All rights reserved.</p>
+                <p className="footer-text">© {new Date().getFullYear()} FinTrack. All rights reserved.</p>
             </footer>
         </div>
     );

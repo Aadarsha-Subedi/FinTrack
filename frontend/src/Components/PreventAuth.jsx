@@ -3,10 +3,8 @@ import { useEffect, useContext } from "react";
 
 //THIRD PARTY IMPORTS
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 //CONTEXTS, UTILS AND WEBHOOKS
-import { url } from '../Utils/url';
 import { AuthContext } from "../Contexts/AuthContext.jsx";
 
 

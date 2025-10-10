@@ -26,13 +26,14 @@ const app = express();
 app.use(cors({
     origin: [
         "https://finance-tracker-frontend-gules.vercel.app",
-        "https://finance-tracker-frontend-aadarsha-subedis-projects.vercel.app"
+        "https://finance-tracker-frontend-aadarsha-subedis-projects.vercel.app",
+        "http://localhost:5173"
     ],
     credentials: true,
 }));
 const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000,  // 15 minutes
-    max: 100,                   // limit each IP to 100 requests per windowMs
+    windowMs: 15 * 60 * 1000,
+    max: 100,
     message: { message: 'Too many requests, please try again later.' },
     standardHeaders: true,      // return rate limit info in headers
     legacyHeaders: false,
