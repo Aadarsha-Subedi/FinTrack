@@ -27,15 +27,19 @@ export default function UserSidebar() {
 
     async function logoutUser() {
         try {
+            console.log('🚪 Logging out...');
             const response = await axios({
                 method: 'GET',
                 url: `${url}/user/logout`,
                 withCredentials: true
             });
+            console.log('✅ Logout response:', response.data);
             toast.success(response.data.message);
             setIsAuthenticated(false);
+            console.log('🔐 Set isAuthenticated to false');
             navigate('/login', { replace: true });
         } catch (error) {
+            console.log('❌ Logout error:', error);
             toast.error(error.message);
         }
     }
