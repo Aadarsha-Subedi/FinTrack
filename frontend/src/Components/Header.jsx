@@ -32,7 +32,6 @@ export default function UserSidebar() {
                 url: `${url}/user/logout`,
                 withCredentials: true
             });
-
             toast.success(response.data.message);
             localStorage.removeItem('accessToken')
             setIsAuthenticated(false);

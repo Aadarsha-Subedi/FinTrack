@@ -19,6 +19,7 @@ export default async function verifyToken(req, res, next) {
         req.email = decoded.email;
         next();
     } catch (error) {
+        res.clearCookie('acccessToken');
         return res.status(403).json({
             message: 'Access denied. Invalid or expired token.'
         });

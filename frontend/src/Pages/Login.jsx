@@ -7,7 +7,7 @@ import { toast } from 'sonner';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Balancer from 'react-wrap-balancer';
 
-// CONTEXTS, UTILS AND WEBHOOKS 
+// CONTEXTS, UTILS AND WEBHOOKS
 import { url } from '../Utils/url';
 import { AuthContext } from '../Contexts/AuthContext';
 
@@ -37,6 +37,7 @@ export default function Login() {
             setIsAuthenticated(true);
             navigate('../user', { replace: true, state: { name: response.data.name } });
         } catch (error) {
+            setIsAuthenticated(false);
             toast.error(error.response.data.message);
         }
     }
