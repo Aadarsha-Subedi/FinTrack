@@ -9,16 +9,18 @@ export function AuthProvider({ children }) {
     const [isAuthenticated, setIsAuthenticated] = useState(null);
 
     useEffect(() => {
-        const verifyAuth = async () => {
+        async function verifyAuth() {
             try {
-                const response = await axios.get(`${url}/verify`, {
-                    withCredentials: true,
+                const response = await axios({
+                    method: 'GET',
+                    url: `${url}/verify`,
+                    withCredentials: true
                 });
                 setIsAuthenticated(response.data.loggedIn);
-            } catch {
+            } catch (error) {
                 setIsAuthenticated(false);
             }
-        };
+        }
         verifyAuth();
     }, []);
 

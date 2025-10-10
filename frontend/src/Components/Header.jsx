@@ -33,7 +33,6 @@ export default function UserSidebar() {
                 withCredentials: true
             });
             toast.success(response.data.message);
-            localStorage.removeItem('accessToken')
             setIsAuthenticated(false);
             navigate('/login', { replace: true });
         } catch (error) {
