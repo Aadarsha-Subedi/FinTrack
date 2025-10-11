@@ -10,7 +10,9 @@ import pool from '../db/db.js';
 export default async function loginController(req, res) {
 
     dotenv.config({ path: './.env', quiet: true });
-    const { email, password } = req.body;
+    let { email, password } = req.body;
+    email = validator.trim(email);
+    password = validator.trim(password);
 
     if (validator.isEmpty(email) || validator.isEmpty(password) || !validator.isEmail(email)) {
         return res.status(401).json({

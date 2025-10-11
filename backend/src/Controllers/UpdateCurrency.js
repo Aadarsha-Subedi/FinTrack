@@ -1,10 +1,14 @@
 //DATABASE
 import pool from '../db/db.js';
 
+//THIRD PARTY IMPORTS
+import validator from 'validator';
+
 export default async function UpdateCurrecny(req, res) {
 
     const  email  = req.email;
-    const { newCurrency } = req.body;
+    let { newCurrency } = req.body;
+    newCurrency = validator.trim(newCurrency);
 
 
     try {

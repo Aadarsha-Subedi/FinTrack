@@ -6,6 +6,7 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import Balancer from 'react-wrap-balancer';
+import validator from 'validator';
 
 //CONTEXTS, UTILS AND WEBHOOKS
 import { CurrencyContext } from '../Contexts/CurrencyContext';
@@ -25,7 +26,7 @@ export default function Settings() {
     const {setIsAuthenticated} = useContext(AuthContext);
 
     async function handleCurrencyChange(formData) {
-        const currency = formData.get('currencies');
+        const currency = validator.trim(formData.get('currencies'));
         try {
             const response = await axios({
                 method: 'PUT',

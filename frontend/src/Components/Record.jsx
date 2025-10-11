@@ -5,6 +5,7 @@ import { useRef, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { toast } from 'sonner';
 import Balancer from 'react-wrap-balancer';
+import validator from 'validator';
 
 //CONTEXTS, UTILS AND WEBHOOKS
 import { CurrencyContext } from '../Contexts/CurrencyContext.js';
@@ -67,9 +68,9 @@ export default function Record({ transactionId, category, description, amount, s
 
     async function updateRecord(formData) {
 
-        const category = formData.get('category');
-        const description = formData.get('description');
-        const amount = formData.get('amount');
+        const category = validator.trim(formData.get('category'));
+        const description = validator.trim(formData.get('description'));
+        const amount = validator.trim(formData.get('amount'));
 
         try {
             const response = await axios({
@@ -167,7 +168,7 @@ export default function Record({ transactionId, category, description, amount, s
                         </div>
                         <div className="update-formgroup">
                             <label htmlFor="amount">Amount</label>
-                            <input type="number" min={1} id='amount' name='amount' defaultValue={amount} required />
+                            <input type="number" min={1} step='.01' id='amount' name='amount' defaultValue={amount} required />
                         </div>
                         <div className="update-formgroup">
                             <label htmlFor="description">Description</label>

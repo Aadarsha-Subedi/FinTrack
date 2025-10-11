@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 //THIRD PARTY IMPORTS
 import { toast } from 'sonner';
 import axios from 'axios';
-import { useLocation } from 'react-router-dom';
+import validator from 'validator';
 
 // CONTEXTS, UTILS AND WEBHOOKS
 import { url } from '../Utils/url.js';
@@ -45,9 +45,9 @@ export default function Dashboard() {
     }, []);
 
     async function addRecord(formData) {
-        const category = formData.get('category');
-        const description = formData.get('description');
-        const amount = formData.get('amount');
+        const category = validator.trim(formData.get('category'));
+        const description = validator.trim(formData.get('description'));
+        const amount = validator.trim(formData.get('amount'));
 
         try {
             const response = await axios({
@@ -57,9 +57,7 @@ export default function Dashboard() {
                 data: { category, description, amount }
             });
             toast.success(response.data.message);
-
             closeAddRecordModal();
-
             const fetchResponse = await axios({
                 method: 'GET',
                 url: `${url}/user`,
@@ -106,7 +104,7 @@ export default function Dashboard() {
                             </div>
                             <div className="add-formgroup">
                                 <label htmlFor="amount">Amount</label>
-                                <input type="number" min={1} id='amount' name='amount' required />
+                                <input type="number" min={1} step='.01' id='amount' name='amount' required />
                             </div>
                             <div className="add-formgroup">
                                 <label htmlFor="description">Description</label>

@@ -1,7 +1,11 @@
+//CORE REACT IMPORTS
+import { useState } from 'react';
+
 //THIRD PARTY IMPORTS
 import axios from 'axios';
 import { toast } from 'sonner';
 import { useNavigate, NavLink } from 'react-router-dom';
+import validator from 'validator';
 
 // CONTEXTS, UTILS AND WEBHOOKS
 import { url } from '../Utils/url';
@@ -9,17 +13,22 @@ import { url } from '../Utils/url';
 //ASSETS AND STYLES
 import '../Styles/Signup.css';
 import signupIcon from '../Public/signup.svg';
+import passwordShowIcon from '../Public/password-show.svg';
+import passwordHideIcon from '../Public/password-hide.svg';
 
 export default function Signup() {
 
     const navigate = useNavigate();
+    const [passwordInputState, setPasswordInputState] = useState('password');
+    const [confirmPasswordInputState, setConfirmPasswordInputState] = useState('password');
+
 
     async function signupUser(formData) {
 
-        const email = formData.get('email');
-        const name = formData.get('name');
-        const password = formData.get('password');
-        const confirmPassword = formData.get('confirm-password');
+        const email = validator.trim(formData.get('email'));
+        const name = validator.trim(formData.get('name'));
+        const password = validator.trim(formData.get('password'));
+        const confirmPassword = validator.trim(formData.get('confirm-password'));
         const currency = 'USD ($)';
 
         try {
@@ -37,7 +46,27 @@ export default function Signup() {
         } catch (error) {
             toast.error(error.response.data.message);
         }
+    }
 
+    function updatePasswordInputState() {
+        setPasswordInputState(prevPasswordInputState => {
+            if (prevPasswordInputState === 'password') {
+                setPasswordInputState('text');
+            }
+            else {
+                setPasswordInputState('password');
+            }
+        })
+    }
+    function updateConfirmPasswordInputState() {
+        setConfirmPasswordInputState(prevConfirmPasswordInputState => {
+            if (prevConfirmPasswordInputState === 'password') {
+                setConfirmPasswordInputState('text');
+            }
+            else {
+                setConfirmPasswordInputState('password');
+            }
+        })
     }
 
     return (
@@ -55,7 +84,7 @@ export default function Signup() {
                         <form className='form-signup' action={signupUser}>
                             <div className="signup-formgroup">
                                 <label htmlFor='email'>Email</label>
-                                <input placeholder='test@example.com' type="email" id='email' name='email' required />
+                                <input autoComplete='email' placeholder='test@example.com' type="email" id='email' name='email' required />
                             </div>
                             <div className="signup-formgroup">
                                 <label htmlFor='name'>Name</label>
@@ -63,11 +92,17 @@ export default function Signup() {
                             </div>
                             <div className="signup-formgroup">
                                 <label htmlFor='password'>Password</label>
-                                <input placeholder='******' type="password" id='password' name='password' required />
+                                <div className="password-wrapper">
+                                    <input autoComplete='new-password' placeholder='******' type={passwordInputState} id='password' name='password' required />
+                                    <img onClick={updatePasswordInputState} className='password-icon' src={(passwordInputState === 'password') ? passwordShowIcon : passwordHideIcon} alt="A password show icon." width={28} />
+                                </div>
                             </div>
                             <div className="signup-formgroup">
                                 <label htmlFor='confirm-password'>Confirm Password</label>
-                                <input placeholder='******' type="password" id='confirm-password' name='confirm-password' required />
+                                <div className="password-wrapper">
+                                    <input autoComplete='new-password' placeholder='******' type={confirmPasswordInputState} id='confirm-password' name='confirm-password' required />
+                                    <img onClick={updateConfirmPasswordInputState} className='password-icon' src={(confirmPasswordInputState === 'password') ? passwordShowIcon : passwordHideIcon} alt="A password show icon." width={28} />
+                                </div>
                             </div>
                             <div className="signup-btn-wrapper">
                                 <button className='signup-btn'>Sign Up</button>

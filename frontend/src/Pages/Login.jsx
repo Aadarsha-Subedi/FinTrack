@@ -1,11 +1,12 @@
 //CORE REACT IMPORTS
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 //THIRD PARTY COMPONENTS
 import axios from 'axios';
 import { toast } from 'sonner';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Balancer from 'react-wrap-balancer';
+import validator from 'validator';
 
 // CONTEXTS, UTILS AND WEBHOOKS
 import { url } from '../Utils/url';
@@ -14,17 +15,20 @@ import { AuthContext } from '../Contexts/AuthContext';
 //ASSETS AND STYLES
 import '../Styles/Login.css';
 import loginIcon from '../Public/login.svg';
+import passwordShowIcon from '../Public/password-show.svg';
+import passwordHideIcon from '../Public/password-hide.svg';
 
 export default function Login() {
 
     const navigate = useNavigate();
     const { setIsAuthenticated } = useContext(AuthContext);
+    const [passwordInputState, setPasswordInputState] = useState('password');
 
 
     async function loginUser(formData) {
 
-        const email = formData.get('email');
-        const password = formData.get('password');
+        const email = validator.trim(formData.get('email'));
+        const password = validator.trim(formData.get('password'));
 
         try {
             const response = await axios({
@@ -42,6 +46,17 @@ export default function Login() {
         }
     }
 
+    function updatePasswordInputState () {
+        setPasswordInputState(prevPasswordInputState => {
+            if (prevPasswordInputState === 'password') {
+                setPasswordInputState('text');
+            }
+            else {
+                setPasswordInputState('password');
+            }
+        })
+    }
+
     return (
         <div className="login-container">
             <div className="login-image-container">
@@ -57,11 +72,14 @@ export default function Login() {
                         <form className='form-login' action={loginUser}>
                             <div className="login-formgroup">
                                 <label htmlFor='email'>Email</label>
-                                <input placeholder='test@example.com' type="email" id='email' name='email' required />
+                                <input autoComplete='username' placeholder='test@example.com' type="email" id='email' name='email' required />
                             </div>
                             <div className="login-formgroup">
                                 <label htmlFor='password'>Password</label>
-                                <input placeholder='******' type="password" id='password' name='password' required />
+                                <div className="password-wrapper">
+                                    <input autoComplete='current-password' placeholder='******' type={passwordInputState} id='password' name='password' required />
+                                    <img onClick={updatePasswordInputState} className='password-icon' src={(passwordInputState === 'password') ? passwordShowIcon : passwordHideIcon} alt="A password show icon." width={32} />
+                                </div>
                             </div>
                             <button className='login-btn'>Login</button>
                         </form>

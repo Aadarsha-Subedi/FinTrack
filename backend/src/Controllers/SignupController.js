@@ -10,7 +10,12 @@ import pool from '../db/db.js';
 
 export default async function signupController(req, res) {
 
-    const { email, password, confirmPassword, currency, name } = req.body;
+    let { email, password, confirmPassword, currency, name } = req.body;
+    email = validator.trim(email);
+    password = validator.trim(password);
+    confirmPassword = validator.trim(confirmPassword);
+    currency = validator.trim(currency);
+    name = validator.trim(name);
 
     if (validator.isEmpty(email) || validator.isEmpty(password) || validator.isEmpty(confirmPassword) || !validator.isEmail(email)) {
         return res.status(401).json({

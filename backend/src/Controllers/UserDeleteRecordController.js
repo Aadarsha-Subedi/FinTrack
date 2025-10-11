@@ -1,10 +1,14 @@
 //DATABASE
 import pool from '../db/db.js';
 
+//THIRD PARTY IMPORTS
+import validator from 'validator';
+
 export default async function userDeleteRecordController (req, res) {
 
     const email = req.email;
-    const {transactionId} = req.params;
+    let {transactionId} = req.params;
+    transactionId = validator.trim(transactionId);
 
     try {
         const response = await pool.query('DELETE FROM finances WHERE email=$1 AND "transactionId"=$2', [email, transactionId]);

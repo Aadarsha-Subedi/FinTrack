@@ -23,9 +23,9 @@
     color: var(--button-bg-hover);
 }
 
-.signup-formgroup>label {
+.signup-formgroup>label{
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: bold;
     color: var(--neutral-900);
 }
 
@@ -35,7 +35,8 @@
     text-align: center;
 }
 
-.signup-formgroup>input {
+.signup-formgroup>input,
+.password-wrapper>input {
     font-weight: 500;
     letter-spacing: .2ch;
 }
@@ -88,10 +89,11 @@
     margin-left: .2em;
 }
 
-.signup-formgroup>input {
+.signup-formgroup>input,
+.password-wrapper>input {
     width: 100%;
     padding: 0.75em 1.5em;
-       border: 1px solid var(--neutral-400);
+    border: 1px solid var(--neutral-400);
     background-color: var(--neutral-200);
 }
 
@@ -101,11 +103,13 @@
 }
 
 .signup-container,
-.signup-formgroup>input {
+.signup-formgroup>input,
+.password-wrapper>input {
     margin: 0 auto;
 }
 
-.signup-formgroup>input {
+.signup-formgroup>input,
+.password-wrapper>input {
     margin-bottom: 1.5em;
 }
 
