@@ -133,10 +133,10 @@ export default function Dashboard() {
     return (
         <>
             <AddRecordModal />
-            <h2 className='welcome-text'>Welcome, {name}!</h2>
+            <p className='welcome-text'>Welcome, {name}!</p>
             <div className="dashboard-container">
                 <div className="dashboard-add-record-wrapper">
-                    <button className='dashboard-btn-add' onClick={showModal}>Add a new record</button>
+                    <button className='dashboard-btn-add' onClick={showModal}>Add a new financial record</button>
                 </div>
                 <div className="dashboard-records-wrapper">
                     {userFinances.length ? recordElements : <NoRecordTemplate />}

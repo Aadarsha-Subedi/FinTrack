@@ -62,15 +62,15 @@ export default function Analytics() {
             <div className="info-container">
                 <div className="info-daily-analytics-container">
                     <h1 className='hero-amount'>{currency}{totalDaily ?? 0}</h1>
-                    <p>Total amount spent today</p>
+                    <p className='hero-info'>Total amount spent today</p>
                 </div>
                 <div className="info-monthly-analytics-container">
                     <h1 className='hero-amount'>{currency}{totalMonthly ?? 0}</h1>
-                    <p>Total amount spent in {monthMap[month]}</p>
+                    <p className='hero-info'>Total amount spent in {monthMap[month]}</p>
                 </div>
                 <div className="info-yearly-analytics-container">
                     <h1 className='hero-amount'>{currency}{totalYearly ?? 0}</h1>
-                    <p>Total amount spent in {year}</p>
+                    <p className='hero-info'>Total amount spent in {year}</p>
                 </div>
             </div>
             <div className="analytics-container">

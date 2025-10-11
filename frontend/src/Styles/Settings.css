@@ -34,9 +34,3 @@
     outline: none;
     box-shadow: 2px 2px 5px var(--neutral-500);
 }
-.delete-btn,
-.update-btn {
-    padding: 1em 2em;
-    border: none;
-    border-radius: 10px;
-}

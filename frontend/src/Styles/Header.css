@@ -4,21 +4,22 @@
 /* TYPOGRAPHY */
 
 .header-logo {
+    font-family: "DM Sans", sans-serif;
+    letter-spacing: .1ch;
     text-transform: uppercase;
-    text-decoration: underline;
 }
 
-.nav-links-text {
-    font-size: 1.2rem;
-    font-weight: bold;
+.nav-links-text,
+.nav-logout-btn {
+    font-size: 1rem;
+    font-weight: medium;
+    letter-spacing: .2ch;
     color: var(--neutral-500);
     text-transform: capitalize;
     text-align: center;
 }
-
 .nav-logout-btn {
-    font-size: 1.2rem;
-    font-weight: bold;
+    letter-spacing: 0;
 }
 
 .header-logo {
@@ -40,7 +41,7 @@
     align-items: center;
     padding: 1em 0;
     background-color: var(--neutral-100);
-    box-shadow: 0px 1px 1px var(--neutral-400);
+    box-shadow: 0px 1px 2px var(--neutral-400);
 }
 
 .header-nav-links {
@@ -58,7 +59,7 @@
 .nav-links-text {
     padding: .1em 0;
     border-bottom: 2px solid transparent;
-    transition: all 0.5s ease-in-out 0s;
+    transition: all 0.2s ease-in 0s;
 }
 
 .nav-logout-wrapper {
@@ -68,10 +69,11 @@
 .nav-logout-btn {
     background-color: inherit;
     width: 100%;
-    padding: .3em;
     display: flex;
-    gap: 1em;
+    justify-content: center;
     align-items: center;
+    gap: .3em;
+    padding: .3em;
     border: none;
     border-bottom: 2px solid transparent;
     border-bottom-width: 0%;
@@ -84,9 +86,10 @@
     border-radius: 0;
 }
 
+.nav-links-text:hover,
 .nav-logout-btn:hover {
-    border-bottom: 2px solid var(--neutral-900);
-    border-bottom-width: 100%;
+    font-size: 1.1rem;
+    color: var(--neutral-900);
     border-radius: 0;
 }
 

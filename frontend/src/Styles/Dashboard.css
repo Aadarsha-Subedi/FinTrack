@@ -1,18 +1,23 @@
 /* TYPOGRAPHY */
 .dashboard-btn-add {
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 1.1rem;
+    font-weight: medium;
 }
 
 .welcome-text {
+    color: var(--neutral-700);
+    font-weight: 600;
+    text-shadow: 1px 1px 1px var(--neutral-3    00);
     text-align: center;
-    margin-top: 1em;
 }
 
 .add-formgroup>input {
     font-family: "Inter", sans-serif;
     font-weight: 500;
     letter-spacing: .1ch;
+}
+.add-record-info {
+    color: var(--neutral-700);
 }
 
 /* LAYOUT */
@@ -37,7 +42,7 @@ body {
     border: none;
     border-radius: 10px;
     color: var(--neutral-50);
-    width: 50%;
+    width: 40%;
     margin-bottom: 1em;
     padding: 1em .5em;
 }
@@ -101,4 +106,8 @@ body {
     padding: 1em 3.5em;
     border-radius: 10px;
     border: none;
+}
+
+.welcome-text {
+    margin-top: 1.5em;
 }

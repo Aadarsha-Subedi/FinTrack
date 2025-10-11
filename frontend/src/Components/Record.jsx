@@ -212,7 +212,7 @@ export default function Record({ transactionId, category, description, amount, s
                     </div>
                 </div>
                 <p className='record-description'>{description}</p>
-                <h2 className='record-amount'>{formattedCurrency} {Number(amount).toFixed(2)}</h2>
+                <p className='record-amount'>{formattedCurrency} {Number(amount).toFixed(2)}</p>
             </div>
         </>
 

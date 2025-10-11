@@ -27,19 +27,15 @@ export default function UserSidebar() {
 
     async function logoutUser() {
         try {
-            console.log('🚪 Logging out...');
             const response = await axios({
                 method: 'GET',
                 url: `${url}/user/logout`,
                 withCredentials: true
             });
-            console.log('✅ Logout response:', response.data);
             toast.success(response.data.message);
             setIsAuthenticated(false);
-            console.log('🔐 Set isAuthenticated to false');
             navigate('/login', { replace: true });
         } catch (error) {
-            console.log('❌ Logout error:', error);
             toast.error(error.message);
         }
     }
@@ -58,7 +54,7 @@ export default function UserSidebar() {
         <header className="header-container">
             <div className="header-logo-wrapper">
                 <NavLink to='/user' replace>
-                    <h1 className='header-logo'>FinTrack</h1>
+                    <h2 className='header-logo'>FinTrack</h2>
                 </NavLink>
             </div>
             <div className="header-nav-links">

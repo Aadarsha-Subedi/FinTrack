@@ -14,7 +14,6 @@ export default async function userController (req, res) {
             name: name.rows[0].name
         });
     } catch (error) {
-        console.log(error.message);
         return res.status(500).json({
             message: error.message
         })

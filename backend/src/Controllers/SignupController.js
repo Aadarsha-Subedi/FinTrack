@@ -55,7 +55,6 @@ export default async function signupController(req, res) {
             message: `User ${email} successfully signed up! Please login to continue.`
         });
     } catch (error) {
-        console.log(error.message);
         return res.status(500).json({
             message: 'Internal server error'
         });
