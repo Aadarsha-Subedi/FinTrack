@@ -1,13 +1,14 @@
 //CORE IMPORTS
 import { useEffect, useState, useContext } from "react";
 
+//COMPONENTS
+import Loader from './Loader.jsx';
+
 //THIRD PARTY IMPORTS
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { toast } from "sonner";
 
 //CONTEXTS, UTILS AND WEBHOOKS
-import { url } from '../Utils/url';
 import { AuthContext } from "../Contexts/AuthContext";
 
 
@@ -22,7 +23,7 @@ export default function RequireAuth({ children }) {
         }
     }, [isAuthenticated, navigate]);
 
-    if (isAuthenticated === null) return <p>Loading...</p>;
+    if (isAuthenticated === null) return <Loader />;
 
     return isAuthenticated ? children : null;
 }

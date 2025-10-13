@@ -69,6 +69,8 @@ export default function Signup() {
         })
     }
 
+    setTimeout(()=>{}, 10000);
+
     return (
         <div className="signup-container">
             <div className="signup-image-wrapper">
