@@ -1,7 +1,7 @@
 ////DATABASE
 import pool from '../db/db.js';
 
-export default async function DeleteAccount(req, res) {
+export default async function DeleteAccountController(req, res) {
 
     const email = req.email;
 

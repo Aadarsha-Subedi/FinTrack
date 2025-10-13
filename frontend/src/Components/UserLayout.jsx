@@ -6,6 +6,7 @@ import { toast } from 'sonner';
 
 //CONTEXT, UTILS AND WEBHOOKS
 import { CurrencyContext } from '../Contexts/CurrencyContext.js';
+import { NameContext } from '../Contexts/NameContext.js';
 import { url } from '../Utils/url.js';
 
 //COMPONENTS
@@ -16,6 +17,7 @@ import '../Styles/UserLayout.css';
 
 export default function UserLayout() {
     const [userCurrency, setUserCurrency] = useState(null);
+    const [name, setName] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -26,6 +28,7 @@ export default function UserLayout() {
                     withCredentials: true,
                 });
                 setUserCurrency(response.data.message.rows[0].currency);
+                setName(response.data.message.rows[0].name);
             } catch (error) {
                 toast.error(error.message);
             }
@@ -35,12 +38,14 @@ export default function UserLayout() {
 
     return (
         <CurrencyContext.Provider value={{ userCurrency, setUserCurrency }}>
-            <div className='user-content-container'>
-                <Header />
-                <main className='main-container'>
-                    <Outlet />
-                </main>
-            </div>
+            <NameContext.Provider value={{name, setName}}>
+                <div className='user-content-container'>
+                    <Header />
+                    <main className='main-container'>
+                        <Outlet />
+                    </main>
+                </div>
+            </NameContext.Provider>
         </CurrencyContext.Provider>
     );
 }

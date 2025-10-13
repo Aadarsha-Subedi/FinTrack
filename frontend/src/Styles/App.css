@@ -86,7 +86,8 @@ body {
     background-color: var(--neutral-50)
 }
 
-a, NavLink {
+a,
+NavLink {
     text-decoration: none;
 }
 
@@ -106,7 +107,43 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 select {
-  appearance: none;        /* Standard */
-  -webkit-appearance: none; /* Safari/Chrome */
-  -moz-appearance: none;    /* Firefox */
+    appearance: none;
+    /* Standard */
+    -webkit-appearance: none;
+    /* Safari/Chrome */
+    -moz-appearance: none;
+    /* Firefox */
+}
+
+select,
+input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    width: 200px;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+    border: 1px solid var(--neutral-500);
+}
+
+option {
+    padding: 10px;
+    background-color: white;
+    color: #333;
+}
+
+option:hover {
+    background-color: #f0f0f0;
+}
+
+option:checked {
+    background-color: #007bff;
+    color: white;
 }

@@ -35,13 +35,6 @@
     text-align: center;
 }
 
-.login-formgroup>input,
-.password-wrapper>input {
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    letter-spacing: .2ch;
-}
-
 .login-btn {
     font-size: 1.2rem;
     font-weight: bold;
@@ -136,7 +129,7 @@
 }
 .password-icon {
     position: absolute;
-    top: 3px;
+    top: 6px;
     right: 15px;
     border-radius: 50%;
     padding: .1em;

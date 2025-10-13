@@ -1,36 +1,142 @@
 /* TYPOGRAPHY */
-.settings-header {
-    text-align: center;
-    color: var(--neutral-500);
+.settings-container * {
+    /* outline: 1px solid green; */
+    font-family: "Lato", sans-serif;
 }
-#currencies {
-    font-family: 'Inter', Times, serif;
+
+.settings-header {
+    color: var(--neutral-700);
+    text-align: center;
+}
+
+.settings-update-currency-btn,
+.settings-change-name-btn,
+.btn-pw-change,
+.settings-delete-btn {
+    color: var(--neutral-50);
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.settings-delete-btn {
+    font-size: 1rem;
+}
+
+.change-pw {
+    color: var(--neutral-600);
+    font-weight: 200;
+}
+
+.h2-acc-del {
+    color: var(--neutral-600);
 }
 
 /* LAYOUT */
 .settings-container {
-    max-width: 600px;
-    margin: 1em auto;
+
     display: flex;
     flex-direction: column;
-    row-gap: 1em;
-    background-color: var(--neutral-200);
-    box-shadow: 1px 4px 3px var(--neutral-500);
-    padding: 2em 1em;
-    border-radius: 10px;
+    row-gap: 2em;
+
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-top: .1em;
+
+    padding: 1em;
+
+    border-left: 1px solid var(--neutral-800);
+    border-right: 1px solid var(--neutral-800);
+    box-shadow: -1px 0 3px var(--neutral-400), 1px 0 3px var(--neutral-400);
+
+    background-color: var(--neutral-50);
+
 }
-.acc-currency-form,
+
+.settings-header {
+    margin-bottom: .5em;
+}
+
+/* .acc-currency-form * {
+    outline: 1px solid green;
+} */
+.acc-currency-form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.acc-currency-format {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: .7em;
+
+}
+
+.settings-update-currency-btn,
+.settings-change-name-btn,
+.btn-pw-change,
+.settings-delete-btn {
+    padding: .2em .5em;
+
+    background-color: var(--primary-700);
+
+    border-radius: 10px;
+    border: 1px solid var(--primary-700);
+    box-shadow: 1px 1px 5px var(--neutral-400);
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.btn-pw-change {
+    padding: .5em 1em;
+}
+
+.settings-update-currency-btn:hover,
+.settings-change-name-btn:hover,
+.btn-pw-change:hover {
+    background-color: var(--primary-900);
+    transform: scaleX(1.05) scaleY(1.05)
+}
+
+
+.change-name-formgroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.change-name-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .7em;
+}
+
+.change-name-input>input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    color: #333;
+    cursor: pointer;
+    width: 200px;
+}
+
 .acc-delete-wrapper {
     display: flex;
-    margin-top: 1em;
     justify-content: space-between;
     align-items: center;
 }
-#currencies {
-    margin-top: 1em;
-    padding: .5em 1em;
+
+.settings-delete-btn {
+    padding: 1em 2em;
+
+    background-color: var(--accent-error-600);
+
+    border: none;
     border-radius: 10px;
-    background-color: var(--neutral-50);
-    outline: none;
-    box-shadow: 2px 2px 5px var(--neutral-500);
+}
+
+.settings-delete-btn:hover {
+    background-color: var(--accent-error-500);
+    transform: scaleX(1.05) scaleY(1.05)
 }

@@ -2,13 +2,17 @@
 import express from 'express';
 
 //CONTROLLERS
-import UpdateCurrecny from '../Controllers/UpdateCurrency.js';
-import GetCurrency from '../Controllers/GetCurrency.js';
-import DeleteAccount from '../Controllers/DeleteAccount.js';
+import UpdateCurrecnyController from '../Controllers/UpdateCurrencyController.js';
+import GetCurrencyController from '../Controllers/GetCurrencyController.js';
+import DeleteAccountController from '../Controllers/DeleteAccountController.js';
+import ChangeNameController from '../Controllers/ChangeNameController.js';
+import updatePasswordController from '../Controllers/UpdatePasswordController.js';
 
 const UserSettingsRouter = express.Router();
-UserSettingsRouter.put('/settings', UpdateCurrecny);
-UserSettingsRouter.get('/settings', GetCurrency);
-UserSettingsRouter.delete('/settings', DeleteAccount)
+UserSettingsRouter.put('/settings/change-currency', UpdateCurrecnyController);
+UserSettingsRouter.put('/settings/change-name', ChangeNameController)
+UserSettingsRouter.get('/settings', GetCurrencyController);
+UserSettingsRouter.delete('/settings/delete-account', DeleteAccountController);
+UserSettingsRouter.put('/settings/update-password', updatePasswordController);
 
 export default UserSettingsRouter;

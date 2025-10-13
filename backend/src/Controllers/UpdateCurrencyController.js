@@ -4,7 +4,7 @@ import pool from '../db/db.js';
 //THIRD PARTY IMPORTS
 import validator from 'validator';
 
-export default async function UpdateCurrecny(req, res) {
+export default async function UpdateCurrecnyController(req, res) {
 
     const  email  = req.email;
     let { newCurrency } = req.body;

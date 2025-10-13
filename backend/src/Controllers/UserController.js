@@ -10,7 +10,7 @@ export default async function userController (req, res) {
         const name = await pool.query('SELECT name FROM users WHERE email=$1', [email]);
         return res.status(200).json({
             response: response,
-            message: `Successfully fetched all data for ${email}`,
+            message: `Successfully fetched all data.`,
             name: name.rows[0].name
         });
     } catch (error) {

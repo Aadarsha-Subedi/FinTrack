@@ -23,7 +23,7 @@ export default async function userUpdateRecordController(req, res) {
             });
         }
         return res.status(200).json({
-            message: `Record successfully updated in ${email}`,
+            message: `Record successfully updated.`,
         });
     } catch (error) {
         return res.status(500).json({

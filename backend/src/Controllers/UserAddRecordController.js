@@ -16,7 +16,7 @@ export default async function userAddRecordController(req, res) {
     try {
         const response = await pool.query('INSERT INTO finances(category, amount, description, email) VALUES ($1, $2, $3, $4)', [category, amount, description, email]);
         return res.status(200).json({
-            message: `Record added to ${email} successfully!`
+            message: `Record added successfully!`
         });
     } catch (error) {
         return res.status(500).json({
