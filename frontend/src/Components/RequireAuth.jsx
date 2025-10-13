@@ -1,5 +1,5 @@
 //CORE IMPORTS
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useContext } from "react";
 
 //COMPONENTS
 import Loader from './Loader.jsx';

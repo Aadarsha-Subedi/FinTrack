@@ -8,7 +8,7 @@ export default function LandingPage() {
 
     const navigate = useNavigate();
 
-    function navigateUser () {
+    function navigateUser() {
         navigate('/signup');
     }
 
