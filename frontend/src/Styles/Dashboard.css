@@ -14,6 +14,9 @@
 .add-record-info {
     color: var(--neutral-700);
 }
+.add-formgroup select {
+    font-weight: bold;
+}
 
 /* LAYOUT */
 body {
@@ -89,10 +92,16 @@ body {
 .add-formgroup > select {
     width: 100%;
     padding: 1em 1.5em;
-    border: 1px solid var(--neutral-300);
+    border: 1px solid var(--neutral-400);
     background-color: var(--neutral-200);
+    box-shadow: 0px 2px 3px -1px rgba(0, 0, 0, 0.1),
+        0px 1px 0px 0px rgba(25, 28, 33, 0.02),
+        0px 0px 0px 1px rgba(25, 28, 33, 0.08);
     border-radius: 10px;
     margin-bottom: 1em;
+}
+.add-formgroup option {
+    border-radius: 10px;
 }
 
 .add-record-btn {

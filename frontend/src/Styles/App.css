@@ -146,3 +146,16 @@ option:checked {
     background-color: #007bff;
     color: white;
 }
+
+select option {
+    color: black;
+}
+option:nth-child(n) {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+option:nth-child(n):checked {
+    background-color: white;
+    color: grey;
+}
