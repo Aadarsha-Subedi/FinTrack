@@ -109,8 +109,19 @@ export default function Dashboard() {
                             addRecord(formData);
                         }} className='add-record-form'>
                             <div className="add-formgroup">
-                                <label htmlFor="category">Category</label>
-                                <input type="text" id='category' name='category' required />
+                                <label htmlFor="category">Select a category</label>
+                                <select name="category" id="category">
+                                    <option value="food-dining">Food & Dining</option>
+                                    <option value="transportation">Transportation</option>
+                                    <option value="housing-utilities">Housing & Utilities</option>
+                                    <option value="entertainment-leisure">Entertainment & Leisure</option>
+                                    <option value="health-fitness">Health & Fitness</option>
+                                    <option value="shopping">Shopping</option>
+                                    <option value="education">Education</option>
+                                    <option value="savings-investment">Savings & Investments</option>
+                                    <option value="miscellaneous">Miscellaneous</option>
+                                    <option value="gifts-donations">Gifts & Donations</option>
+                                </select>
                             </div>
                             <div className="add-formgroup">
                                 <label htmlFor="amount">Amount</label>

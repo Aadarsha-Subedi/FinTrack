@@ -209,7 +209,8 @@
     margin-bottom: 0.3em;
 }
 
-.update-formgroup > input {
+.update-formgroup > input,
+.update-formgroup > select {
     width: 100%;
     padding: 1em 1.5em;
     border: 1px solid var(--neutral-300);

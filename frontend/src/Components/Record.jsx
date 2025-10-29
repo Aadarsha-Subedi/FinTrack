@@ -193,8 +193,19 @@ export default function Record({ transactionId, category, description, amount, s
                     <div className="update-record-form-wrapper">
                         <form action={updateRecord} className='update-record-form'>
                             <div className="update-formgroup">
-                                <label htmlFor="category">Category</label>
-                                <input type="text" id='category' name='category' defaultValue={category} required />
+                                <label htmlFor="category">Select a category</label>
+                                <select name="category" defaultValue={category} id="category">
+                                    <option value="food-dining">Food & Dining</option>
+                                    <option value="transportation">Transportation</option>
+                                    <option value="housing-utilities">Housing & Utilities</option>
+                                    <option value="entertainment-leisure">Entertainment & Leisure</option>
+                                    <option value="health-fitness">Health & Fitness</option>
+                                    <option value="shopping">Shopping</option>
+                                    <option value="education">Education</option>
+                                    <option value="savings-investment">Savings & Investments</option>
+                                    <option value="miscellaneous">Miscellaneous</option>
+                                    <option value="gifts-donations">Gifts & Donations</option>
+                                </select>
                             </div>
                             <div className="update-formgroup">
                                 <label htmlFor="amount">Amount</label>
