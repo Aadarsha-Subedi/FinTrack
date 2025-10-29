@@ -1,78 +1,75 @@
 :root {
-    font-family: "IM Fell Double Pica", serif;
+    font-family: 'Geist', serif;
     font-size: 16px;
     /* ===========================
     🩵 PRIMARY (Blue)
      =========================== */
-    --primary-50: #EFF6FF;
-    --primary-100: #DBEAFE;
-    --primary-200: #BFDBFE;
-    --primary-300: #93C5FD;
-    --primary-400: #60A5FA;
-    --primary-500: #3B82F6;
-    --primary-600: #2563EB;
-    --primary-700: #1D4ED8;
-    --primary-800: #1E40AF;
-    --primary-900: #1E3A8A;
-
+    --primary-50: #eff6ff;
+    --primary-100: #dbeafe;
+    --primary-200: #bfdbfe;
+    --primary-300: #93c5fd;
+    --primary-400: #60a5fa;
+    --primary-500: #3b82f6;
+    --primary-600: #2563eb;
+    --primary-700: #1d4ed8;
+    --primary-800: #1e40af;
+    --primary-900: #1e3a8a;
 
     /* ===========================
      ⚫ NEUTRAL (Gray)
      =========================== */
-    --neutral-50: #FAFAFA;
-    --neutral-100: #F5F5F5;
-    --neutral-200: #E5E7EB;
-    --neutral-300: #D1D5DB;
-    --neutral-400: #9CA3AF;
-    --neutral-500: #6B7280;
-    --neutral-600: #4B5563;
+    --neutral-50: #fafafa;
+    --neutral-100: #f5f5f5;
+    --neutral-200: #e5e7eb;
+    --neutral-300: #d1d5db;
+    --neutral-400: #9ca3af;
+    --neutral-500: #6b7280;
+    --neutral-600: #4b5563;
     --neutral-700: #374151;
-    --neutral-800: #1F2937;
+    --neutral-800: #1f2937;
     --neutral-900: #111827;
-
 
     /* ===========================
     🌿 ACCENT (Green)
      =========================== */
-    --accent-success-50: #ECFDF5;
-    --accent-success-100: #D1FAE5;
-    --accent-success-200: #A7F3D0;
-    --accent-success-300: #6EE7B7;
-    --accent-success-400: #34D399;
-    --accent-success-500: #10B981;
+    --accent-success-50: #ecfdf5;
+    --accent-success-100: #d1fae5;
+    --accent-success-200: #a7f3d0;
+    --accent-success-300: #6ee7b7;
+    --accent-success-400: #34d399;
+    --accent-success-500: #10b981;
     --accent-success-600: #059669;
     --accent-success-700: #047857;
-    --accent-success-800: #065F46;
-    --accent-success-900: #064E3B;
+    --accent-success-800: #065f46;
+    --accent-success-900: #064e3b;
 
     /* ===========================
     🌿 ACCENT (Red)
      =========================== */
-    --accent-error-50: #FEF2F2;
-    --accent-error-100: #FEE2E2;
-    --accent-error-200: #FECACA;
-    --accent-error-300: #FCA5A5;
-    --accent-error-400: #F87171;
-    --accent-error-500: #EF4444;
-    --accent-error-600: #DC2626;
-    --accent-error-700: #B91C1C;
-    --accent-error-800: #991B1B;
-    --accent-error-900: #7F1D1D;
+    --accent-error-50: #fef2f2;
+    --accent-error-100: #fee2e2;
+    --accent-error-200: #fecaca;
+    --accent-error-300: #fca5a5;
+    --accent-error-400: #f87171;
+    --accent-error-500: #ef4444;
+    --accent-error-600: #dc2626;
+    --accent-error-700: #b91c1c;
+    --accent-error-800: #991b1b;
+    --accent-error-900: #7f1d1d;
 
     /* ===========================
     🌿 ACCENT (Blue)
      =========================== */
-    --accent-info-50: #EFF6FF;
-    --accent-info-100: #DBEAFE;
-    --accent-info-200: #BFDBFE;
-    --accent-info-300: #93C5FD;
-    --accent-info-400: #60A5FA;
-    --accent-info-500: #3B82F6;
-    --accent-info-600: #2563EB;
-    --accent-info-700: #1D4ED8;
-    --accent-info-800: #1E40AF;
-    --accent-info-900: #1E3A8A;
-
+    --accent-info-50: #eff6ff;
+    --accent-info-100: #dbeafe;
+    --accent-info-200: #bfdbfe;
+    --accent-info-300: #93c5fd;
+    --accent-info-400: #60a5fa;
+    --accent-info-500: #3b82f6;
+    --accent-info-600: #2563eb;
+    --accent-info-700: #1d4ed8;
+    --accent-info-800: #1e40af;
+    --accent-info-900: #1e3a8a;
 }
 
 * {
@@ -83,7 +80,7 @@
 }
 
 body {
-    background-color: var(--neutral-50)
+    background-color: var(--neutral-50);
 }
 
 a,
@@ -100,8 +97,8 @@ button {
     cursor: pointer;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
@@ -126,7 +123,9 @@ input {
     cursor: pointer;
     width: 200px;
 }
-
+a {
+    color: inherit;
+}
 select:focus,
 input:focus {
     outline: none;

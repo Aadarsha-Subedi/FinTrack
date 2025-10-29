@@ -15,7 +15,7 @@ import Login from './Pages/Login.jsx';
 import Dashboard from './Pages/Dashboard.jsx';
 import Analytics from './Pages/Analytics.jsx';
 import Settings from './Pages/Settings.jsx';
-import LandingPage from './Pages/LandingPage.jsx';
+import Landing from './Pages/Landing.jsx';
 
 //ASSETS AND STYLES
 import '../src/Styles/App.css';
@@ -25,7 +25,7 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Routes>
-          <Route path='/' element={<PreventAuth><LandingPage /></PreventAuth>} />
+          <Route path='/' element={<PreventAuth><Landing /></PreventAuth>} />
           <Route path='/signup' element={<PreventAuth><Signup /></PreventAuth>} />
           <Route path='/login' element={<PreventAuth><Login /></PreventAuth>} />
           <Route path='/user' element={<RequireAuth><UserLayout /></RequireAuth>}>

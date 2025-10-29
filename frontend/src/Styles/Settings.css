@@ -1,9 +1,4 @@
 /* TYPOGRAPHY */
-.settings-container * {
-    /* outline: 1px solid green; */
-    font-family: "Lato", sans-serif;
-}
-
 .settings-header {
     color: var(--neutral-700);
     text-align: center;
@@ -33,14 +28,13 @@
 
 /* LAYOUT */
 .settings-container {
-
     display: flex;
     flex-direction: column;
     row-gap: 2em;
 
     max-width: 1000px;
     margin: 0 auto;
-    margin-top: .1em;
+    margin-top: 0.1em;
 
     padding: 1em;
 
@@ -49,11 +43,10 @@
     box-shadow: -1px 0 3px var(--neutral-400), 1px 0 3px var(--neutral-400);
 
     background-color: var(--neutral-50);
-
 }
 
 .settings-header {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
 }
 
 /* .acc-currency-form * {
@@ -68,15 +61,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    column-gap: .7em;
-
+    column-gap: 0.7em;
 }
 
 .settings-update-currency-btn,
 .settings-change-name-btn,
 .btn-pw-change,
 .settings-delete-btn {
-    padding: .2em .5em;
+    padding: 0.75em 1.5em;
 
     background-color: var(--primary-700);
 
@@ -85,18 +77,12 @@
     box-shadow: 1px 1px 5px var(--neutral-400);
     transition: all 0.3s ease-in-out 0s;
 }
-
-.btn-pw-change {
-    padding: .5em 1em;
-}
-
 .settings-update-currency-btn:hover,
 .settings-change-name-btn:hover,
 .btn-pw-change:hover {
     background-color: var(--primary-900);
-    transform: scaleX(1.05) scaleY(1.05)
+    transform: scaleX(1.05) scaleY(1.05);
 }
-
 
 .change-name-formgroup {
     display: flex;
@@ -107,10 +93,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: .7em;
+    gap: 0.7em;
 }
 
-.change-name-input>input {
+.change-name-input > input {
     padding: 10px;
     font-size: 16px;
     border: 2px solid #ccc;
@@ -128,8 +114,6 @@
 }
 
 .settings-delete-btn {
-    padding: 1em 2em;
-
     background-color: var(--accent-error-600);
 
     border: none;
@@ -138,5 +122,5 @@
 
 .settings-delete-btn:hover {
     background-color: var(--accent-error-500);
-    transform: scaleX(1.05) scaleY(1.05)
+    transform: scaleX(1.05) scaleY(1.05);
 }

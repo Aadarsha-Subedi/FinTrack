@@ -1,5 +1,6 @@
 //CORE REACT IMPORTS
 import { useRef, useState, useEffect, useContext } from 'react';
+import { motion } from 'motion/react';
 
 //THIRD PARTY IMPORTS
 import axios from 'axios';
@@ -16,7 +17,8 @@ import { url } from '../Utils/url';
 import deleteIcon from '../Public/cross.svg';
 import updateIcon from '../Public/update.svg';
 import deleteRecordIcon from '../Public/delete-record.svg';
-import crossRecordIcon from '../Public/cross-record.svg';
+import crossIcon from '../Public/cross.png';
+
 import '../Styles/Record.css';
 
 export default function Record({ transactionId, category, description, amount, setUserFinances }) {
@@ -140,16 +142,30 @@ export default function Record({ transactionId, category, description, amount, s
     function DeleteRecordModal() {
         return (
             <dialog ref={deleteDialogRef} className='record-delete-dialog-wrapper'>
-                <div className="record-delete-icon-wrapper">
-                    <img src={deleteRecordIcon} alt="A red delete icon." width={48} />
-                </div>
-                <h2 className="record-delete-warning-heading"><Balancer>Are you sure you want to delete this record?</Balancer></h2>
-                <p className='record-delete-confirm'>This action cannot be undone.</p>
-                <div className="record-delete-btn">
-                    <button className='delete-btn' onClick={deleteRecord}>Delete</button>
-                    <button className='cancel-btn' onClick={closeDeleteRecordModal}>Cancel</button>
-                </div>
-                <img className='close-modal' src={crossRecordIcon} alt="A cross icon." width={24} onClick={closeDeleteRecordModal} />
+                <motion.div initial={{
+                    opacity: 0,
+                    scale: 0.9,
+                }} animate={{
+                    opacity: 1,
+                    scale: 1
+                }} exit={{
+                    opacity: 0,
+                    scale: 0,
+                }} transition={{
+                    duration: 0.4,
+                    ease: 'easeInOut'
+                }}>
+                    <div className="record-delete-icon-wrapper">
+                        <img src={deleteRecordIcon} alt="A red delete icon." width={48} />
+                    </div>
+                    <h2 className="record-delete-warning-heading"><Balancer>Are you sure you want to delete this record?</Balancer></h2>
+                    <p className='record-delete-confirm'>This action cannot be undone.</p>
+                    <div className="record-delete-btn">
+                        <button className='delete-btn' onClick={deleteRecord}>Delete</button>
+                        <button className='cancel-btn' onClick={closeDeleteRecordModal}>Cancel</button>
+                    </div>
+                </motion.div>
+                <img className='close-modal' src={crossIcon} alt="A cross icon." width={24} onClick={closeDeleteRecordModal} />
             </dialog>
         )
     }
@@ -157,66 +173,119 @@ export default function Record({ transactionId, category, description, amount, s
     function UpdateRecordModal() {
         return (
             <dialog ref={updateDialogRef} className='record-update-dialog-wrapper'>
-                <div className="record-update-icon-wrapper">
-                    <img src={updateIcon} alt="A red delete icon." width={32} />
-                </div>
-                <div className="update-record-form-wrapper">
-                    <form action={updateRecord} className='update-record-form'>
-                        <div className="update-formgroup">
-                            <label htmlFor="category">Category</label>
-                            <input type="text" id='category' name='category' defaultValue={category} required />
-                        </div>
-                        <div className="update-formgroup">
-                            <label htmlFor="amount">Amount</label>
-                            <input type="number" min={1} step='.01' id='amount' name='amount' defaultValue={amount} required />
-                        </div>
-                        <div className="update-formgroup">
-                            <label htmlFor="description">Description</label>
-                            <input type="text" id='description' name='description' defaultValue={description} required />
-                        </div>
-                        <div className="record-update-btn">
-                            <button onClick={updateRecord} type='submit' className="update-btn">Update</button>
-                            <button onClick={closeUpdateRecordModal} className='cancel-btn'>Cancel</button>
-                        </div>
-                    </form>
-                </div>
+                <motion.div initial={{
+                    opacity: 0,
+                    scale: 0.9,
+                }} animate={{
+                    opacity: 1,
+                    scale: 1
+                }} exit={{
+                    opacity: 0,
+                    scale: 0,
+                }} transition={{
+                    duration: 0.4,
+                    ease: 'easeInOut'
+                }}>
 
-                <img className='close-modal' src={crossRecordIcon} alt="A cross icon." width={24} onClick={closeUpdateRecordModal} />
+                    <div className="record-update-icon-wrapper">
+                        <img src={updateIcon} alt="A red delete icon." width={32} />
+                    </div>
+                    <div className="update-record-form-wrapper">
+                        <form action={updateRecord} className='update-record-form'>
+                            <div className="update-formgroup">
+                                <label htmlFor="category">Category</label>
+                                <input type="text" id='category' name='category' defaultValue={category} required />
+                            </div>
+                            <div className="update-formgroup">
+                                <label htmlFor="amount">Amount</label>
+                                <input type="number" min={1} step='.01' id='amount' name='amount' defaultValue={amount} required />
+                            </div>
+                            <div className="update-formgroup">
+                                <label htmlFor="description">Description</label>
+                                <input type="text" id='description' name='description' defaultValue={description} required />
+                            </div>
+                            <div className="record-update-btn">
+                                <button onClick={updateRecord} type='submit' className="update-btn">Update</button>
+                                <button onClick={closeUpdateRecordModal} className='cancel-btn'>Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </motion.div>
+
+                <img className='close-modal' src={crossIcon} alt="A cross icon." width={24} onClick={closeUpdateRecordModal} />
             </dialog>
         )
     }
 
-    return (
-        <>
-            <DeleteRecordModal />
-            <UpdateRecordModal />
-            <div className="record-container">
-                <div className="record-heading">
-                    <h2 className='record-category'>{category}</h2>
-                    <div className="record-icons">
-                        <img
-                            onClick={() => {
-                                setActiveRecord(transactionId);
-                                setModalType('update');
-                            }}
-                            src={updateIcon}
-                            alt="A cross icon."
-                            width={36} />
-                        <img
-                            onClick={() => {
-                                setActiveRecord(transactionId);
-                                setModalType('delete');
-                            }}
-                            src={deleteRecordIcon}
-                            alt="A cross icon."
-                            width={36} />
-                    </div>
-                </div>
-                <p className='record-description'>{description}</p>
-                <p className='record-amount'>{formattedCurrency} {Number(amount).toFixed(2)}</p>
-            </div>
-        </>
+    const recordVariants = {
+        hidden: {
+            opacity: 0
+        },
+        visible: {
+            opacity: 1
+        }
+    }
+    const recordParentVariants = {
+        hidden: {
+            y: -10
+        },
+        visible: {
+            y: 0
+        }
+    }
+    const recordChildVariants = {
+        hidden: {
+            transition: {
+                staggerChildren: 0.7,
+                delayChildren: 0.2
+            }
+        },
+        visible: {
+            transition: {
+                staggerChildren: 0.5,
+                delayChildren: -1
+            },
+        }
+    }
 
+    return (
+        <motion.div variants={recordVariants} initial={"hidden"} animate={"visible"} transition={{
+            duration: 0.3
+        }}>
+            <motion.div variants={recordParentVariants}>
+                <motion.div variants={recordChildVariants}>
+                    <DeleteRecordModal />
+                    <UpdateRecordModal />
+                    <div className="record-container">
+                        <div className="record-heading">
+                            <h2 className='record-category'>{category}</h2>
+                            <div className="record-icons">
+                                <img
+                                    onClick={() => {
+                                        setActiveRecord(transactionId);
+                                        setModalType('update');
+                                    }}
+                                    className='icon-update'
+                                    src={updateIcon}
+                                    alt="A cross icon."
+                                    width={36} />
+                                <img
+                                    onClick={() => {
+                                        setActiveRecord(transactionId);
+                                        setModalType('delete');
+                                    }}
+                                    className='icon-delete'
+                                    src={deleteRecordIcon}
+                                    alt="A cross icon."
+                                    width={36} />
+                            </div>
+                        </div>
+                        <p className='record-description'>{description}</p>
+                        <p className='record-amount'>{formattedCurrency} {Number(amount).toFixed(2)}</p>
+                    </div>
+                </motion.div>
+            </motion.div>
+        </motion.div>
     )
 
 }

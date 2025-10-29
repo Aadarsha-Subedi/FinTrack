@@ -7,7 +7,7 @@
 .welcome-text {
     color: var(--neutral-700);
     font-weight: 600;
-    text-shadow: 1px 1px 1px var(--neutral-3    00);
+    text-shadow: 1px 1px 1px var(--neutral-3 00);
     text-align: center;
 }
 
@@ -23,7 +23,7 @@ body {
     padding: 1em;
     max-width: 1200px;
     margin: 0 auto;
-    margin-top: .5em;
+    margin-top: 0.5em;
 }
 
 .dashboard-add-record-wrapper {
@@ -39,7 +39,7 @@ body {
     color: var(--neutral-50);
     width: 40%;
     margin-bottom: 1em;
-    padding: 1em .5em;
+    padding: 1em 0.5em;
 }
 
 .dashboard-btn-add:hover {
@@ -61,27 +61,31 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid var(--neutral-500);
+    transform-origin: center;
+    border: none;
     padding: 1em 2.5em;
     border-radius: 15px;
+}
+.add-record-dialog-container::backdrop {
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .add-record-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .5em;
+    gap: 0.5em;
 }
 
 .add-record-heading {
-    margin-top: .5em;
+    margin-top: 0.5em;
 }
 
-.add-formgroup>label {
-    margin-bottom: .3em;
+.add-formgroup > label {
+    margin-bottom: 0.3em;
 }
 
-.add-formgroup>input {
+.add-formgroup > input {
     width: 100%;
     padding: 1em 1.5em;
     border: 1px solid var(--neutral-300);
@@ -96,7 +100,7 @@ body {
     gap: 1em;
 }
 
-.add-record-btn>button {
+.add-record-btn > button {
     text-align: center;
     padding: 1em 3.5em;
     border-radius: 10px;

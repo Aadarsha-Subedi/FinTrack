@@ -21,14 +21,16 @@ import UserSettingsRouter from './src/Routes/UserSettingsRouter.js';
 import verifyRouter from './src/Routes/VerifyRouter.js';
 
 const app = express();
-app.use(cors({
-    origin: [
-        "https://finance-tracker-frontend-gules.vercel.app",
-        "https://finance-tracker-frontend-aadarsha-subedis-projects.vercel.app",
-        "http://localhost:5173"
-    ],
-    credentials: true,
-}));
+app.use(
+    cors({
+        origin: [
+            'https://finance-tracker-frontend-gules.vercel.app',
+            'https://finance-tracker-frontend-aadarsha-subedis-projects.vercel.app',
+            'http://localhost:5173',
+        ],
+        credentials: true,
+    })
+);
 dotenv.config({ path: './.env', quiet: true });
 const port = process.env.BACKEND_PORT || 4000;
 
@@ -36,7 +38,7 @@ const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
     max: 100,
     message: { message: 'Too many requests, please try again later.' },
-    standardHeaders: true,      // return rate limit info in headers
+    standardHeaders: true, // return rate limit info in headers
     legacyHeaders: false,
 });
 
@@ -46,13 +48,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(signupRouter);
 app.use(loginRouter);
-app.use(verifyRouter)
+app.use(verifyRouter);
 app.use('/user', verifyToken, userRouter);
 app.use('/user', verifyToken, userAddRecordRouter);
 app.use('/user', verifyToken, userDeleteRecordRouter);
 app.use('/user', verifyToken, userUpdateRecordRouter);
 app.use('/user', verifyToken, userAnalyticsRouter);
-app.use('/user', verifyToken, UserSettingsRouter)
+app.use('/user', verifyToken, UserSettingsRouter);
 app.use('/user', verifyToken, logoutRouter);
 
 app.listen(port);

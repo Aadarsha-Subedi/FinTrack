@@ -1,5 +1,6 @@
 //CORE REACT IMPORTS
 import { useContext, useRef, useState } from 'react';
+import { motion } from 'motion/react';
 
 //THIRD PARTY IMPORTS
 import axios from 'axios';
@@ -140,7 +141,13 @@ export default function Settings() {
     }
 
     return (
-        <div className="settings-container">
+        <motion.div initial={{
+            opacity: 0,
+        }} animate={{
+            opacity: 1,
+        }} transition={{
+            duration: 0.5
+        }} className="settings-container">
             <DeleteAccountModal />
             <h1 className='settings-header'>User Settings</h1>
             <div className="acc-currency-update-wrapper">
@@ -220,7 +227,7 @@ export default function Settings() {
                 <label htmlFor="del-confirm"><h2 className='h2-acc-del'>Delete My Account</h2></label>
                 <button name='del-confirm' id='del-confirm' className='settings-delete-btn' onClick={showDeleteAccountModal}>Delete</button>
             </div>
-        </div>
+        </motion.div>
     )
 
 }

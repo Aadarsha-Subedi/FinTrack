@@ -1,21 +1,18 @@
 /* TYPOGRAPHY */
-.login-container * {
-    font-family: Helvetica, sans-serif;
-}
 .login-hero-text {
     text-align: center;
     font-size: 1.2rem;
 }
 
 .login-info-text {
-    font-size: .875rem;
+    font-size: 0.875rem;
     color: var(--neutral-900);
 }
 
 .login-help-text {
     color: var(--primary-500);
     font-weight: bolder;
-    word-spacing: .5ch;
+    word-spacing: 0.5ch;
     transition: color 0.3s ease-in-out 0s;
 }
 
@@ -24,10 +21,10 @@
     color: var(--button-bg-hover);
 }
 
-.login-formgroup>label {
+.login-formgroup > label {
     font-size: 1rem;
     font-weight: 600;
-    letter-spacing: .1ch;
+    letter-spacing: 0.1ch;
 }
 .login-hero-text,
 .login-info-text,
@@ -39,7 +36,6 @@
     font-size: 1.2rem;
     font-weight: bold;
 }
-
 
 /* LAYOUT */
 .login-container {
@@ -78,40 +74,39 @@
     max-width: 75%;
 }
 .login-info-text {
-    margin-top: .5em;
+    margin-top: 0.5em;
 }
 
 .login-help-text {
-    margin-left: .4em;
+    margin-left: 0.4em;
 }
 
-.login-formgroup>input,
-.password-wrapper>input {
+.login-formgroup > input,
+.password-wrapper > input {
     width: 100%;
     padding: 0.75em 1.5em;
     border: 1px solid var(--neutral-400);
     background-color: var(--neutral-200);
-
 }
 
-.login-formgroup>label {
-    margin-bottom: .5em;
+.login-formgroup > label {
+    margin-bottom: 0.5em;
     margin-top: 1em;
 }
 
 .login-container,
-.login-formgroup>input,
-.password-wrapper>input {
+.login-formgroup > input,
+.password-wrapper > input {
     margin: 0 auto;
 }
-.login-formgroup>input,
-.password-wrapper>input {
+.login-formgroup > input,
+.password-wrapper > input {
     margin-bottom: 1.5em;
 }
 
 .login-btn {
     width: 100%;
-    padding: .5em 1.5em;
+    padding: 0.5em 1.5em;
     margin-top: 1em;
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -132,7 +127,7 @@
     top: 6px;
     right: 15px;
     border-radius: 50%;
-    padding: .1em;
+    padding: 0.1em;
 }
 .password-icon:hover {
     cursor: pointer;

@@ -1,5 +1,6 @@
 //CORE REACT IMPORTS
 import { useEffect, useState, useRef } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 
 //THIRD PARTY IMPORTS
 import { toast } from 'sonner';
@@ -14,7 +15,7 @@ import Record from '../Components/Record.jsx';
 import NoRecordTemplate from '../Components/NoRecordTemplate.jsx';
 
 //STYLES AND ASSETS
-import crossRecordIcon from '../Public/cross-record.svg';
+import crossIcon from '../Public/cross.png';
 import '../Styles/Dashboard.css';
 
 export default function Dashboard() {
@@ -86,9 +87,18 @@ export default function Dashboard() {
         document.body.style.overflow = 'auto';
     }
 
+    const recordVariants = {
+        hidden: {
+            opacity: 0
+        },
+        visible: {
+            opacity: 1
+        }
+    }
+
     function AddRecordModal() {
         return (
-            <dialog ref={addDialogRef} className='add-record-dialog-container'>
+            <dialog ref={addDialogRef} className='add-record-dialog-container' >
                 <div className="add-record-wrapper">
                     <h1 className="add-record-heading">Add a new record</h1>
                     <p className='add-record-info'>Please fill the following details.</p>
@@ -117,8 +127,8 @@ export default function Dashboard() {
                         </form>
                     </div>
                 </div>
-                <img src={crossRecordIcon} className='close-modal' alt="A cross icon." width={24} onClick={closeAddRecordModal} />
-            </dialog>
+                <img src={crossIcon} className='close-modal' alt="A cross icon." width={24} onClick={closeAddRecordModal} />
+            </dialog >
         )
     }
 
@@ -128,8 +138,9 @@ export default function Dashboard() {
         )
     })
 
+
     return (
-        <>
+        <div>
             <AddRecordModal />
             <p className='welcome-text'>Welcome, {name}!</p>
             <div className="dashboard-container">
@@ -140,7 +151,7 @@ export default function Dashboard() {
                     {userFinances.length ? recordElements : <NoRecordTemplate />}
                 </div>
             </div>
-        </>
+        </div>
 
     )
 

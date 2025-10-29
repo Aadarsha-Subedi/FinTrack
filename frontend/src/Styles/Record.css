@@ -1,7 +1,4 @@
 /* TYPOGRAPHY */
-* {
-    font-family: 'Times New Roman', Times, serif;
-}
 
 .record-description,
 .record-category {
@@ -22,12 +19,11 @@
     text-align: center;
 }
 
-
 .delete-btn,
 .cancel-btn,
 .update-btn {
     font-size: 1rem;
-    letter-spacing: .1ch;
+    letter-spacing: 0.1ch;
 }
 
 .delete-btn,
@@ -39,13 +35,13 @@
     color: var(--neutral-900);
 }
 
-.update-formgroup>label {
+.update-formgroup > label {
     font-size: 1.25rem;
     font-weight: bold;
 }
 
 .record-amount {
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     font-weight: bolder;
     font-size: 1.3rem;
 }
@@ -54,7 +50,7 @@
 .record-container {
     min-width: 400px;
     display: flex;
-    row-gap: .5em;
+    row-gap: 0.5em;
     flex-direction: column;
     border: none;
     border-radius: 10px;
@@ -66,7 +62,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: .5em;
+    margin-top: 0.5em;
 }
 
 .record-amount {
@@ -76,7 +72,7 @@
 .record-category,
 .record-amount {
     margin: 0;
-    margin-left: .5em;
+    margin-left: 0.5em;
 }
 
 .record-description {
@@ -84,23 +80,26 @@
 }
 
 .record-amount {
-    margin-bottom: .5em;
+    margin-bottom: 0.5em;
 }
 
 .record-icons {
     display: flex;
-    gap: .5em;
+    gap: 0.5em;
 }
 
-.record-icons>img {
+.record-icons > img {
     border-radius: 50%;
-    padding: .5em;
+    padding: 0.5em;
     cursor: pointer;
-    margin-right: .5em;
+    margin-right: 0.5em;
 }
 
-.record-icons>img:hover {
+.icon-update:hover {
     background-color: var(--primary-100);
+}
+.icon-delete:hover {
+    background-color: var(--accent-error-100);
 }
 
 .record-delete-dialog-wrapper,
@@ -110,6 +109,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+.record-update-dialog-wrapper::backdrop,
+.record-delete-dialog-wrapper::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
 
 .record-delete-icon-wrapper,
 .record-update-icon-wrapper {
@@ -118,7 +121,7 @@
 }
 
 .record-delete-dialog-wrapper {
-    border: 2px solid var(--accent-error-600);
+    border: none;
     border-radius: 10px;
     padding: 1.5em 1em;
     background-color: var(--neutral-100);
@@ -127,7 +130,7 @@
 .record-delete-warning-heading {
     max-width: 75%;
     margin: 0 auto;
-    margin-top: .5em
+    margin-top: 0.5em;
 }
 
 .record-delete-confirm {
@@ -157,7 +160,7 @@
 
 .delete-btn {
     background-color: var(--accent-error-600);
-    box-shadow: 1px 1px 3px var(--accent-error-600)
+    box-shadow: 1px 1px 3px var(--accent-error-600);
 }
 
 .delete-btn:hover {
@@ -167,7 +170,7 @@
 
 .cancel-btn {
     background-color: var(--neutral-200);
-    box-shadow: 1px 1px 3px var(--neutral-200)
+    box-shadow: 1px 1px 3px var(--neutral-200);
 }
 
 .cancel-btn:hover {
@@ -179,7 +182,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    margin: .5em;
+    margin: 0.5em;
 }
 
 .close-modal:hover {
@@ -187,7 +190,7 @@
 }
 
 .record-update-dialog-wrapper {
-    border: 2px solid var(--accent-info-500);
+    border: none;
     border-radius: 10px;
     padding: 1em 1.5em;
 }
@@ -202,11 +205,11 @@
     gap: 1em;
 }
 
-.update-formgroup>label {
-    margin-bottom: .3em;
+.update-formgroup > label {
+    margin-bottom: 0.3em;
 }
 
-.update-formgroup>input {
+.update-formgroup > input {
     width: 100%;
     padding: 1em 1.5em;
     border: 1px solid var(--neutral-300);

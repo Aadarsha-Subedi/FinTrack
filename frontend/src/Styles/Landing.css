@@ -1,0 +1,119 @@
+/* TYPOGRAPHY */
+.main__heading {
+    font-size: 2.5rem;
+    text-shadow: 0.5px 0.5px 0 #7a7a7a;
+    text-align: center;
+}
+.description__container {
+    text-align: center;
+}
+.heading__description {
+    color: var(--neutral-700);
+    font-size: 0.8rem;
+}
+.main__btn--signup,
+.header__btn--login {
+    font-weight: bold;
+    color: white;
+    font-size: 1rem;
+}
+.footer__text {
+    color: var(--neutral-600);
+    font-weight: bold;
+}
+
+/* LAYOUT */
+.landing__container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.landing__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 1em;
+    border-bottom: 1px dashed var(--neutral-400);
+}
+.landing__main {
+    flex: 1;
+    max-width: 800px;
+    margin: 1em auto;
+}
+.main__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    flex: 1;
+}
+.description__container,
+.main__heading {
+    width: 60%;
+    margin: 0 auto;
+}
+.main__heading,
+.heading__description {
+    opacity: 0;
+}
+.heading__description {
+    display: inline-block;
+    filter: blur(10px);
+    transform: translateY(10px);
+}
+.main__btn--signup,
+.header__btn--login {
+    width: fit-content;
+
+    padding: 0.5em 2em;
+
+    border: none;
+    border-radius: 10px;
+    background-color: black;
+
+    box-shadow: 0px 4px 16px rgba(17, 17, 26, 0.1),
+        0px 8px 24px rgba(17, 17, 26, 0.1), 0px 16px 56px rgba(17, 17, 26, 0.1);
+
+    transition: all 0.3s ease-in 0s;
+}
+.main__btn--signup:hover,
+.header__btn--login:hover {
+    cursor: pointer;
+    opacity: 0.9;
+    box-shadow: 0 8px 30px rgb(0, 0, 0, 0.12);
+}
+.btn__container {
+    display: flex;
+    justify-content: center;
+}
+.main__img--mockup {
+    border-radius: 50px;
+
+    margin-block: 1em;
+
+    box-shadow: 0 8px 30px rgb(0, 0, 0, 0.12);
+}
+.landing__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 0.5em;
+
+    padding-block: 1em;
+
+    border-top: 1px dashed var(--neutral-400);
+}
+.img__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.6em;
+
+    border-radius: 50%;
+    transition: all 0.3s ease-out 0s;
+}
+.img__container:hover {
+    cursor: pointer;
+    background-color: var(--neutral-200);
+}

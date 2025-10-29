@@ -1,5 +1,6 @@
 //CORE REACT IMPORTS
 import { useContext, useEffect, useState } from 'react';
+import { motion } from 'motion/react';
 
 //CONTEXTS, UTILS AND HOOKS
 import { CurrencyContext } from '../Contexts/CurrencyContext.js';
@@ -48,7 +49,7 @@ export default function Analytics() {
                 setTotalYearly(response.data.totalYearly.rows[0].totalYearly);
                 setTotalDaily(response.data.totalDaily.rows[0].totalDaily);
                 const tempCurrency = response.data.currency.rows[0].currency;
-                const formattedCurrency = tempCurrency.slice(tempCurrency.indexOf('(')+1,tempCurrency.indexOf(')'));
+                const formattedCurrency = tempCurrency.slice(tempCurrency.indexOf('(') + 1, tempCurrency.indexOf(')'));
                 setCurrency(formattedCurrency);
             } catch (error) {
                 toast.error(error.message);
@@ -57,8 +58,19 @@ export default function Analytics() {
         fetchData();
     }, [])
 
+    const variants = {
+        initial: {
+            opacity: 0,
+            scale: 0
+        },
+        animate: {
+            opacity: 1,
+            scale: 1
+        }
+    }
+
     return (
-        <div className="analytics-info-container">
+        <motion.div variants={variants} initial={'initial'} animate={'animate'} transition={{ duration: 0.5, delay: 0.2 }} className="analytics-info-container">
             <div className="info-container">
                 <div className="info-daily-analytics-container">
                     <h1 className='hero-amount'>{currency}{totalDaily ?? 0}</h1>
@@ -81,8 +93,6 @@ export default function Analytics() {
                     <MonthlyPieChart apiData={pieMonthlyApiData} year={2025} />
                 </div>
             </div>
-
-        </div>
+        </motion.div>
     )
-
 }
