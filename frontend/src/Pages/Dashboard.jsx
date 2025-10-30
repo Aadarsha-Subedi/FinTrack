@@ -16,22 +16,29 @@ import NoRecordTemplate from '../Components/NoRecordTemplate.jsx';
 
 //STYLES AND ASSETS
 import crossIcon from '../Public/cross.png';
+import filterIcon from '../Assets/filter.png';
 import '../Styles/Dashboard.css';
 
 export default function Dashboard() {
 
     const [userFinances, setUserFinances] = useState([]);
+    const [filterOptions, setFilterOptions] = useState({
+        category: 'all',
+        order: 'date-descending'
+    });
     const [name, setName] = useState();
     const addDialogRef = useRef(null);
-    const hasFetched = useRef(false);
 
     useEffect(() => {
-        if (hasFetched.current) return;
-        hasFetched.current = true;
 
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${url}/user`, { withCredentials: true });
+                const response = await axios({
+                    method: 'POST',
+                    url: `${url}/user`,
+                    withCredentials: true,
+                    data: filterOptions
+                })
                 if (response.status === 200) {
                     setUserFinances(response.data.response.rows);
                     setName(response.data.name);
@@ -43,7 +50,7 @@ export default function Dashboard() {
         };
 
         fetchData();
-    }, []);
+    }, [filterOptions]);
 
     async function addRecord(formData) {
         const category = validator.trim(formData.get('category'));
@@ -60,9 +67,10 @@ export default function Dashboard() {
             toast.success(response.data.message);
             closeAddRecordModal();
             const fetchResponse = await axios({
-                method: 'GET',
+                method: 'POST',
                 url: `${url}/user`,
-                withCredentials: true
+                withCredentials: true,
+                data: filterOptions
             });
 
             if (fetchResponse.status === 200) {
@@ -145,18 +153,103 @@ export default function Dashboard() {
 
     const recordElements = userFinances.map(record => {
         return (
-            <Record setUserFinances={setUserFinances} key={record.transactionId} transactionId={record.transactionId} category={record.category} description={record.description} amount={record.amount} />
+            <Record setUserFinances={setUserFinances} key={record.transactionId} transactionId={record.transactionId} category={record.category} description={record.description} amount={record.amount} timestamp={record.timestamp} filterOptions={filterOptions} />
         )
     })
 
+    function filterRecords(formData) {
+        const category = formData.get('category');
+        const order = formData.get('order');
+
+        setFilterOptions({ category, order });
+    }
 
     return (
         <div>
             <AddRecordModal />
-            <p className='welcome-text'>Welcome, {name}!</p>
+            <motion.p initial={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                transition={{
+                    delay: 1,
+                    duration: 0.3
+                }}
+                className='welcome-text'>Welcome, {name}!</motion.p>
             <div className="dashboard-container">
                 <div className="dashboard-add-record-wrapper">
-                    <button className='dashboard-btn-add' onClick={showModal}>Add a new financial record</button>
+                    <motion.button
+                        className='dashboard-btn-add'
+                        onClick={showModal}
+                        initial="rest"
+                        whileHover="hover"
+                        style={{ position: 'relative', overflow: 'hidden' }}
+                    >
+                        <motion.span
+                            style={{ position: 'relative', zIndex: 1 }}
+                            variants={{
+                                rest: { color: '#fff' },
+                                hover: { color: '#000' }
+                            }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            Add a new financial record
+                        </motion.span>
+
+                        <motion.div
+                            variants={{
+                                rest: { x: '-100%' },
+                                hover: { x: '0%' }
+                            }}
+                            transition={{ duration: 0.5, ease: 'easeInOut' }}
+                            style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                                backgroundColor: 'white',
+                                zIndex: 0,
+                            }}
+                        />
+                    </motion.button>
+                </div>
+                <div className='filter__container'>
+                    <form className='filter__form' onSubmit={(e) => {
+                        e.preventDefault();
+                        const formData = new FormData(e.target);
+                        filterRecords(formData);
+                    }}>
+                        <div className="filter-formgroup">
+                            <div>
+                                <label htmlFor="category">Category</label>
+                                <select name="category" id="category">
+                                    <option value="all">All</option>
+                                    <option value="food-dining">Food & Dining</option>
+                                    <option value="transportation">Transportation</option>
+                                    <option value="housing-utilities">Housing & Utilities</option>
+                                    <option value="entertainment-leisure">Entertainment & Leisure</option>
+                                    <option value="health-fitness">Health & Fitness</option>
+                                    <option value="shopping">Shopping</option>
+                                    <option value="education">Education</option>
+                                    <option value="savings-investment">Savings & Investments</option>
+                                    <option value="miscellaneous">Miscellaneous</option>
+                                    <option value="gifts-donations">Gifts & Donations</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label htmlFor="order">Order by</label>
+                                <select name="order" id="order">
+                                    <option value="date-descending">Date - Descending</option>
+                                    <option value="date-ascending">Date - Ascending</option>
+                                    <option value="price-descending">Price - Descending</option>
+                                    <option value="price-ascending">Price - Ascending</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type='submit' className='filter__btn'>
+                            <img src={filterIcon} alt="a filter icon" width={16} />
+                            <p>Filter</p>
+                        </button>
+                    </form>
                 </div>
                 <div className="dashboard-records-wrapper">
                     {userFinances.length ? recordElements : <NoRecordTemplate />}

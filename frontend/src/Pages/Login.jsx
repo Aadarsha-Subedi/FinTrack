@@ -46,7 +46,7 @@ export default function Login() {
         }
     }
 
-    function updatePasswordInputState () {
+    function updatePasswordInputState() {
         setPasswordInputState(prevPasswordInputState => {
             if (prevPasswordInputState === 'password') {
                 setPasswordInputState('text');

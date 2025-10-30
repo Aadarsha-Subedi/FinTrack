@@ -1,6 +1,6 @@
 //CORE REACT IMPORTS
 import { useRef, useState, useEffect, useContext } from 'react';
-import { motion } from 'motion/react';
+import { motion, time } from 'motion/react';
 
 //THIRD PARTY IMPORTS
 import axios from 'axios';
@@ -11,17 +11,17 @@ import validator from 'validator';
 //CONTEXTS, UTILS AND WEBHOOKS
 import { CurrencyContext } from '../Contexts/CurrencyContext.js';
 import { url } from '../Utils/url';
+import monthMap from '../Utils/Months.js';
 
 
 //ASSETS AND STYLES
-import deleteIcon from '../Public/cross.svg';
 import updateIcon from '../Public/update.svg';
 import deleteRecordIcon from '../Public/delete-record.svg';
 import crossIcon from '../Public/cross.png';
 
 import '../Styles/Record.css';
 
-export default function Record({ transactionId, category, description, amount, setUserFinances }) {
+export default function Record({ transactionId, category, description, amount, setUserFinances, timestamp, filterOptions }) {
 
     const deleteDialogRef = useRef(null);
     const updateDialogRef = useRef(null);
@@ -29,6 +29,8 @@ export default function Record({ transactionId, category, description, amount, s
     const [activeRecord, setActiveRecord] = useState();
     const userCurrency = useContext(CurrencyContext).userCurrency;
     const formattedCurrency = userCurrency ? userCurrency.slice(userCurrency.indexOf('(') + 1, userCurrency.indexOf(')')) : '$';
+    timestamp = timestamp.split('T')[0].split('-').reverse();
+    const formattedDate = timestamp[0] + ' ' + monthMap[+timestamp[1]].slice(0, 3) + ' ' + timestamp[2];
 
     function closeDeleteRecordModal() {
         deleteDialogRef.current.close();
@@ -87,9 +89,10 @@ export default function Record({ transactionId, category, description, amount, s
         }
         try {
             const response = await axios({
-                method: 'GET',
+                method: 'POST',
                 url: `${url}/user`,
-                withCredentials: true
+                withCredentials: true,
+                data: filterOptions
             })
             if (response.status !== 200) {
                 toast.error(response.data.message);
@@ -119,9 +122,10 @@ export default function Record({ transactionId, category, description, amount, s
         }
         try {
             const response = await axios({
-                method: 'GET',
+                method: 'POST',
                 url: `${url}/user`,
-                withCredentials: true
+                withCredentials: true,
+                data: filterOptions
             })
             if (response.status !== 200) {
                 toast.error(response.data.message);
@@ -292,7 +296,10 @@ export default function Record({ transactionId, category, description, amount, s
                             </div>
                         </div>
                         <p className='record-description'>{description}</p>
-                        <p className='record-amount'>{formattedCurrency} {Number(amount).toFixed(2)}</p>
+                        <div className='records__container--details'>
+                            <p className='record-amount'>{formattedCurrency} {Number(amount).toFixed(2)}</p>
+                            <p className='record-timestamp'>{formattedDate}</p>
+                        </div>
                     </div>
                 </motion.div>
             </motion.div>

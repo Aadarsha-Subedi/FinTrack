@@ -10,15 +10,14 @@
 }
 
 .login-help-text {
-    color: var(--primary-500);
+    font-size: 1rem;
     font-weight: bolder;
-    word-spacing: 0.5ch;
     transition: color 0.3s ease-in-out 0s;
 }
 
 .login-help-text:hover,
 .login-help-text:focus {
-    color: var(--button-bg-hover);
+    color: var(--neutral-600);
 }
 
 .login-formgroup > label {
@@ -33,7 +32,8 @@
 }
 
 .login-btn {
-    font-size: 1.2rem;
+    color: white;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -106,18 +106,19 @@
 
 .login-btn {
     width: 100%;
-    padding: 0.5em 1.5em;
+    padding: 1em 1.5em;
     margin-top: 1em;
     border: 1px solid var(--border-color);
     border-radius: 10px;
-    background-color: var(--primary-500);
-    color: var(--neutral-50);
+    background-color: var(--neutral-900);
+    box-shadow: 0 3px 10px rgb(0, 0, 0, 0.2);
     transition: background-color 0.5s ease-in-out 0s;
 }
 
 .login-btn:hover,
 .login-btn:focus {
-    background-color: var(--primary-800);
+    background-color: var(--neutral-800);
+    box-shadow: 0 3px 10px rgb(0, 0, 0, 0.4);
 }
 .password-wrapper {
     position: relative;

@@ -23,7 +23,7 @@
 }
 
 .h2-acc-del {
-    color: var(--neutral-600);
+    color: var(--neutral-900);
 }
 
 /* LAYOUT */
@@ -36,7 +36,7 @@
     margin: 0 auto;
     margin-top: 0.1em;
 
-    padding: 1em;
+    padding: 2em 4em;
 
     border-left: 1px solid var(--neutral-800);
     border-right: 1px solid var(--neutral-800);
@@ -70,18 +70,18 @@
 .settings-delete-btn {
     padding: 0.75em 1.5em;
 
-    background-color: var(--primary-700);
+    background-color: black;
 
+    border: none;
     border-radius: 10px;
-    border: 1px solid var(--primary-700);
-    box-shadow: 1px 1px 5px var(--neutral-400);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
     transition: all 0.3s ease-in-out 0s;
 }
 .settings-update-currency-btn:hover,
 .settings-change-name-btn:hover,
 .btn-pw-change:hover {
-    background-color: var(--primary-900);
-    transform: scaleX(1.05) scaleY(1.05);
+    background-color: var(--neutral-900);
+    transform: scaleX(1.01) scaleY(1.01);
 }
 
 .change-name-formgroup {

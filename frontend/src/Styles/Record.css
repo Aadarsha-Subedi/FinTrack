@@ -32,7 +32,7 @@
 }
 
 .cancel-btn {
-    color: var(--neutral-900);
+    color: white;
 }
 
 .update-formgroup > label {
@@ -44,6 +44,10 @@
     font-family: 'Roboto Condensed', sans-serif;
     font-weight: bolder;
     font-size: 1.3rem;
+}
+.record-timestamp {
+    color: var(--neutral-800);
+    font-size: 0.75rem;
 }
 
 /* LAYOUT */
@@ -65,10 +69,6 @@
     margin-top: 0.5em;
 }
 
-.record-amount {
-    margin-bottom: 1em;
-}
-
 .record-category,
 .record-amount {
     margin: 0;
@@ -79,7 +79,8 @@
     margin-left: 1em;
 }
 
-.record-amount {
+.record-amount,
+.record-timestamp {
     margin-bottom: 0.5em;
 }
 
@@ -169,13 +170,13 @@
 }
 
 .cancel-btn {
-    background-color: var(--neutral-200);
+    background-color: black;
     box-shadow: 1px 1px 3px var(--neutral-200);
 }
 
 .cancel-btn:hover {
     cursor: pointer;
-    background-color: var(--neutral-300);
+    background-color: var(--neutral-900);
 }
 
 .close-modal {
@@ -225,4 +226,12 @@
 .update-btn:hover {
     background-color: var(--accent-info-700);
     cursor: pointer;
+}
+.records__container--details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-right: 1em;
+    /* background-color: red; */
 }
